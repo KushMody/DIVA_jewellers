@@ -3,7 +3,6 @@ import { Heart, ShoppingBag } from 'lucide-react';
 import type { Product } from '../../types';
 import { useWishlist } from '../../context/WishlistContext';
 import { useCart } from '../../context/CartContext';
-import { playAtelierChime } from '../../utils/audio';
 
 interface StickyMobilePDPBarProps {
   product: Product;
@@ -31,7 +30,6 @@ export const StickyMobilePDPBar: React.FC<StickyMobilePDPBarProps> = ({ product 
   if (!isVisible) return null;
 
   const handleReserve = () => {
-    playAtelierChime(880, 0.4);
     addItem({
       productId: product.id,
       name: product.name,

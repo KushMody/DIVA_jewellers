@@ -4,7 +4,6 @@ import type { Product } from '../../types';
 import { useWishlist } from '../../context/WishlistContext';
 import { useCart } from '../../context/CartContext';
 import { SizeGuideModal } from '../common/SizeGuideModal';
-import { playAtelierChime } from '../../utils/audio';
 
 interface ProductInfoProps {
   product: Product;
@@ -24,7 +23,6 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
   const chosenMetalObj = product.metalOptions.find((m) => m.id === selectedMetal) || product.metalOptions[0];
 
   const handleAddToBag = () => {
-    playAtelierChime(880, 0.4);
     addItem({
       productId: product.id,
       name: product.name,

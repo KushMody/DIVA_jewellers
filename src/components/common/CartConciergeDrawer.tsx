@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Trash2, Plus, Minus, ShieldCheck, Gift, Ruler, MessageCircle, ArrowRight, Sparkles, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
-import { playAtelierChime, playAtelierClick } from '../../utils/audio';
 
 export const CartConciergeDrawer: React.FC = () => {
   const {
@@ -44,7 +43,6 @@ export const CartConciergeDrawer: React.FC = () => {
   };
 
   const handleCheckoutReservation = () => {
-    playAtelierChime(880, 0.4);
     setIsReservedSuccess(true);
     setTimeout(() => {
       setIsReservedSuccess(false);
@@ -172,10 +170,7 @@ export const CartConciergeDrawer: React.FC = () => {
 
                         <div className="flex items-center border border-[#C99A54]/30 rounded-2xs overflow-hidden">
                           <button
-                            onClick={() => {
-                              playAtelierClick();
-                              updateQuantity(item.id, -1);
-                            }}
+                            onClick={() => updateQuantity(item.id, -1)}
                             className="px-2 py-1 text-xs hover:bg-[#C99A54]/20 transition-colors"
                             aria-label="Decrease quantity"
                           >
@@ -183,10 +178,7 @@ export const CartConciergeDrawer: React.FC = () => {
                           </button>
                           <span className="px-2.5 py-0.5 text-xs font-mono">{item.quantity}</span>
                           <button
-                            onClick={() => {
-                              playAtelierClick();
-                              updateQuantity(item.id, 1);
-                            }}
+                            onClick={() => updateQuantity(item.id, 1)}
                             className="px-2 py-1 text-xs hover:bg-[#C99A54]/20 transition-colors"
                             aria-label="Increase quantity"
                           >

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ShieldCheck, ThumbsUp, MessageSquareQuote, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { playAtelierClick } from '../../utils/audio';
 
 interface ReviewStory {
   id: string;
@@ -92,7 +91,6 @@ export const AtelierReviewsShowcase: React.FC = () => {
     : REVIEWS.filter((r) => r.category === activeCategory);
 
   const toggleLike = (id: string) => {
-    playAtelierClick();
     setLikedReviews((prev) =>
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
     );
@@ -137,7 +135,6 @@ export const AtelierReviewsShowcase: React.FC = () => {
             <button
               key={tab.id}
               onClick={() => {
-                playAtelierClick();
                 setActiveCategory(tab.id as typeof activeCategory);
               }}
               className={`px-4 py-2 text-xs tracking-wider uppercase transition-all rounded-xs cursor-pointer ${

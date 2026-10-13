@@ -8,7 +8,6 @@ import { MobileBottomNav } from './components/common/MobileBottomNav';
 import { CartConciergeDrawer } from './components/common/CartConciergeDrawer';
 import { LuxuryCustomCursor } from './components/effects/LuxuryCustomCursor';
 import { ScrollProgressBar } from './components/effects/ScrollProgressBar';
-import { AtelierSoundscape } from './components/effects/AtelierSoundscape';
 import { HomePage } from './pages/HomePage';
 import { RingsPage } from './pages/RingsPage';
 import { ProductDetailPage } from './pages/ProductDetailPage';
@@ -28,9 +27,6 @@ const AppContent: React.FC = () => {
 
       {/* Desktop Inertial Custom Cursor & Stardust Trail */}
       <LuxuryCustomCursor />
-
-      {/* Atelier Acoustic Soundscape Toggle */}
-      <AtelierSoundscape />
 
       {/* Header with transparent mode over hero on homepage, solid on inner pages */}
       <Header isTransparent={isHomePage} />

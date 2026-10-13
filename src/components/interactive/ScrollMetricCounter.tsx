@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Award, Compass, ShieldCheck, Gem } from 'lucide-react';
-import { playAtelierClick } from '../../utils/audio';
 
 interface MetricItem {
   id: string;
@@ -159,7 +158,6 @@ export const ScrollMetricCounter: React.FC = () => {
                 key={metric.id}
                 onMouseEnter={() => {
                   setActiveBlueprint(metric.id);
-                  playAtelierClick();
                 }}
                 className={`group relative p-6 bg-[#1A0B05] border transition-all duration-300 rounded-xs cursor-pointer ${
                   isSelected

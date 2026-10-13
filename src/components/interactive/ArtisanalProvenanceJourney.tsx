@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Compass, Volume2, VolumeX, MapPin, ChevronRight, Play, Pause } from 'lucide-react';
+import { Compass, MapPin, ChevronRight, Play, Pause } from 'lucide-react';
 
 interface ProvenanceChapter {
   id: number;
@@ -63,7 +63,6 @@ const CHAPTERS: ProvenanceChapter[] = [
 export const ArtisanalProvenanceJourney: React.FC = () => {
   const [activeChapterIndex, setActiveChapterIndex] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
-  const [isAudioOn, setIsAudioOn] = useState<boolean>(false);
 
   const currentChapter = CHAPTERS[activeChapterIndex];
 
@@ -76,31 +75,9 @@ export const ArtisanalProvenanceJourney: React.FC = () => {
     return () => clearInterval(timer);
   }, [isPlaying]);
 
-  // Subtle web audio ambient chime on interaction (optional)
-  const playSubtleChime = () => {
-    if (!isAudioOn) return;
-    try {
-      const audioCtx = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5 chime
-      osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.4); // A5
-      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.6);
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-      osc.start();
-      osc.stop(audioCtx.currentTime + 0.6);
-    } catch {
-      // Audio context silently ignored if restricted by browser policy
-    }
-  };
-
   const selectChapter = (idx: number) => {
     setActiveChapterIndex(idx);
     setIsPlaying(false);
-    playSubtleChime();
   };
 
   return (
@@ -159,7 +136,7 @@ export const ArtisanalProvenanceJourney: React.FC = () => {
             })}
           </div>
 
-          {/* Audio & Autoplay Controls */}
+          {/* Autoplay Controls */}
           <div className="hidden md:flex items-center space-x-3 pl-4">
             <button
               onClick={() => setIsPlaying(!isPlaying)}
@@ -167,14 +144,6 @@ export const ArtisanalProvenanceJourney: React.FC = () => {
             >
               {isPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
               <span>{isPlaying ? 'PAUSE' : 'PLAY'}</span>
-            </button>
-
-            <button
-              onClick={() => setIsAudioOn(!isAudioOn)}
-              className="flex items-center space-x-1.5 bg-[#201007] border border-[#C99A54]/30 p-1 text-[#E7C58A] rounded-2xs hover:border-[#C99A54]"
-              title="Atelier audio chime"
-            >
-              {isAudioOn ? <Volume2 className="w-3.5 h-3.5 text-[#C99A54]" /> : <VolumeX className="w-3.5 h-3.5" />}
             </button>
           </div>
         </div>

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Layers, Check, ShoppingBag, Sparkles } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
-import { playAtelierClick, playAtelierChime } from '../../utils/audio';
 
 interface RingLayerOption {
   id: string;
@@ -129,7 +128,6 @@ export const RingStackerStudio: React.FC = () => {
   const totalPrice = activeStack.reduce((sum, r) => sum + r.price, 0);
 
   const handleAddStackToBag = () => {
-    playAtelierChime(880, 0.4);
     activeStack.forEach((r) => {
       addItem({
         productId: r.id,
@@ -180,7 +178,6 @@ export const RingStackerStudio: React.FC = () => {
                   <button
                     key={m.id}
                     onClick={() => {
-                      playAtelierClick();
                       setSelectedMetal(m);
                     }}
                     className={`w-5 h-5 rounded-full border transition-all cursor-pointer ${
@@ -305,7 +302,6 @@ export const RingStackerStudio: React.FC = () => {
                   <button
                     key={item.id}
                     onClick={() => {
-                      playAtelierClick();
                       setSelectedCenter(item);
                     }}
                     className={`p-3 border text-left transition-all rounded-xs flex flex-col justify-between cursor-pointer ${
@@ -347,7 +343,6 @@ export const RingStackerStudio: React.FC = () => {
                   <button
                     key={item.id}
                     onClick={() => {
-                      playAtelierClick();
                       setSelectedBand(item);
                     }}
                     className={`p-3 border text-left transition-all rounded-xs flex flex-col justify-between cursor-pointer ${
@@ -389,7 +384,6 @@ export const RingStackerStudio: React.FC = () => {
                   <button
                     key={item.id}
                     onClick={() => {
-                      playAtelierClick();
                       setSelectedCrown(item);
                     }}
                     className={`p-3 border text-left transition-all rounded-xs flex flex-col justify-between cursor-pointer ${

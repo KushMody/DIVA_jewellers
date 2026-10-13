@@ -1,6 +1,5 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { Sparkles, SlidersHorizontal, ArrowLeftRight } from 'lucide-react';
-import { playAtelierChime } from '../../utils/audio';
 
 export const DiamondMetamorphosisSlider: React.FC = () => {
   const [sliderPosition, setSliderPosition] = useState(50);
@@ -39,7 +38,6 @@ export const DiamondMetamorphosisSlider: React.FC = () => {
 
   const handlePointerDown = () => {
     setIsDragging(true);
-    playAtelierChime(784, 0.2);
   };
 
   const handlePointerUp = () => {
@@ -74,7 +72,6 @@ export const DiamondMetamorphosisSlider: React.FC = () => {
             <button
               onClick={() => {
                 setSliderPosition(15);
-                playAtelierChime(587, 0.25);
               }}
               className={`px-3 py-1.5 text-[10px] tracking-[0.2em] uppercase font-mono border transition-all cursor-pointer ${
                 sliderPosition < 30
@@ -87,7 +84,6 @@ export const DiamondMetamorphosisSlider: React.FC = () => {
             <button
               onClick={() => {
                 setSliderPosition(50);
-                playAtelierChime(784, 0.25);
               }}
               className={`px-3 py-1.5 text-[10px] tracking-[0.2em] uppercase font-mono border transition-all cursor-pointer ${
                 sliderPosition >= 30 && sliderPosition <= 70
@@ -100,7 +96,6 @@ export const DiamondMetamorphosisSlider: React.FC = () => {
             <button
               onClick={() => {
                 setSliderPosition(85);
-                playAtelierChime(1046, 0.25);
               }}
               className={`px-3 py-1.5 text-[10px] tracking-[0.2em] uppercase font-mono border transition-all cursor-pointer ${
                 sliderPosition > 70

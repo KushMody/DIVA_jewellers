@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Gem, Eye, Sparkles, Scale, Compass, Award, Check } from 'lucide-react';
-import { playAtelierClick } from '../../utils/audio';
 
 type FourCType = 'carat' | 'cut' | 'color' | 'clarity';
 
@@ -121,7 +120,6 @@ export const Gemological4CExplorer: React.FC = () => {
             <button
               key={tab.id}
               onClick={() => {
-                playAtelierClick();
                 setActiveTab(tab.id);
               }}
               className={`p-4 border text-left transition-all duration-300 relative rounded-xs cursor-pointer ${
@@ -257,7 +255,6 @@ export const Gemological4CExplorer: React.FC = () => {
                   <button
                     key={val}
                     onClick={() => {
-                      playAtelierClick();
                       setCaratWeight(val);
                     }}
                     className={`px-3 py-1.5 text-xs font-mono border transition-all rounded-2xs cursor-pointer ${
@@ -376,7 +373,6 @@ export const Gemological4CExplorer: React.FC = () => {
                   <button
                     key={item.id}
                     onClick={() => {
-                      playAtelierClick();
                       setCutGrade(item.id as typeof cutGrade);
                     }}
                     className={`w-full p-3.5 border text-left transition-all rounded-xs flex items-center justify-between cursor-pointer ${
@@ -472,7 +468,6 @@ export const Gemological4CExplorer: React.FC = () => {
                   <button
                     key={cg.grade}
                     onClick={() => {
-                      playAtelierClick();
                       setSelectedColorIdx(idx);
                     }}
                     className={`py-3 px-1 border rounded-xs text-center transition-all cursor-pointer ${
@@ -577,7 +572,6 @@ export const Gemological4CExplorer: React.FC = () => {
                   <button
                     key={cg.grade}
                     onClick={() => {
-                      playAtelierClick();
                       setSelectedClarityIdx(idx);
                     }}
                     className={`w-full p-3 border text-left transition-all rounded-xs flex items-center justify-between cursor-pointer ${
