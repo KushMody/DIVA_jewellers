@@ -42,7 +42,7 @@ const HOTSPOTS: AnatomyHotspot[] = [
   {
     id: 'hallmark',
     name: 'Bureau of Indian Standards (BIS 750)',
-    description: 'Indelibly laser-hallmarked with certified 18 Karat 750 gold purity, DIVA maison insignia, and the piece’s unique ledger identification.',
+    description: 'Indelibly laser-hallmarked with certified 18 Karat 750 gold purity, VALERIE maison insignia, and the piece’s unique ledger identification.',
     angleTarget: 270,
     x: 32,
     y: 72,
@@ -201,7 +201,7 @@ export const Ring360Inspector: React.FC = () => {
                 >
                   <img
                     src="/images/products/solitaire-twisted-band.webp"
-                    alt="DIVA 360 Ring Turntable"
+                    alt="VALERIE 360 Ring Turntable"
                     className="w-64 h-64 sm:w-80 sm:h-80 object-contain drop-shadow-[0_20px_35px_rgba(201,154,84,0.3)] pointer-events-none"
                   />
                 </div>

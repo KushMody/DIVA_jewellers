@@ -30,7 +30,7 @@ export const BespokeSerialStudio: React.FC<BespokeSerialStudioProps> = ({
   const suggestedNumbers = [7, 18, 24, 42, 72, 88, 108, 143, 214];
 
   const handleReserve = () => {
-    toggleWishlist('diva-01');
+    toggleWishlist('valerie-01');
     setIsReservedSuccess(true);
     setTimeout(() => setIsReservedSuccess(false), 3500);
   };
@@ -54,7 +54,7 @@ export const BespokeSerialStudio: React.FC<BespokeSerialStudioProps> = ({
           </h2>
 
           <p className="text-xs sm:text-sm text-[#F8F2E9]/75 font-light leading-relaxed mt-3 max-w-2xl mx-auto">
-            Following the revered tradition of limited Swiss watch chapters, each DIVA heirloom ring is strictly restricted to <span className="text-[#E7C58A] font-medium">250 individually numbered editions</span> worldwide. Claim your unique serial hallmark and live-engrave your personal story.
+            Following the revered tradition of limited Swiss watch chapters, each VALERIE heirloom ring is strictly restricted to <span className="text-[#E7C58A] font-medium">250 individually numbered editions</span> worldwide. Claim your unique serial hallmark and live-engrave your personal story.
           </p>
 
           <div className="flex items-center justify-center space-x-3 mt-5">
@@ -155,7 +155,7 @@ export const BespokeSerialStudio: React.FC<BespokeSerialStudioProps> = ({
                     <div className="absolute inset-x-2 sm:inset-x-8 top-[58%] -translate-y-1/2 flex items-center justify-center space-x-1.5 sm:space-x-3 text-center px-2 sm:px-4 overflow-hidden pointer-events-none">
                       {/* Official BIS & Atelier Stamp */}
                       <span className="text-[8px] sm:text-[11px] font-mono tracking-widest text-[#E7C58A]/90 border border-[#E7C58A]/40 px-1 py-0.5 rounded-2xs shrink-0">
-                        DIVA
+                        VALERIE
                       </span>
                       <span className="text-[8px] sm:text-[10px] font-mono tracking-wider text-[#C99A54]/80 hidden xs:inline shrink-0">
                         750 AU
@@ -190,7 +190,7 @@ export const BespokeSerialStudio: React.FC<BespokeSerialStudioProps> = ({
                     {/* Inner Coin Rim */}
                     <div className="w-full h-full rounded-full border-2 border-dashed border-[#170C06]/40 bg-gradient-to-br from-[#170C06] to-[#28160D] flex flex-col items-center justify-center text-center p-3">
                       <span className="text-[8px] sm:text-[9px] font-mono tracking-[0.25em] text-[#C99A54] uppercase">
-                        HOUSE OF DIVA
+                        HOUSE OF VALERIE
                       </span>
                       <span className="font-serif text-xl sm:text-2xl text-[#E7C58A] font-semibold tracking-wider my-1">
                         N° {formattedSerial}

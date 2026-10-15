@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
                 <path d="m12 2 4 8-4 8-4-8 4-8Z" />
               </svg>
               <div className="flex flex-col">
-                <span className="font-serif text-2xl tracking-[0.16em] text-[#F8F2E9]">DIVA</span>
+                <span className="font-serif text-2xl tracking-[0.16em] text-[#F8F2E9]">VALERIE</span>
                 <span className="text-[9px] tracking-[0.4em] text-[#C99A54] uppercase -mt-1 font-light">
                   JEWELLERS
                 </span>
@@ -108,7 +108,7 @@ export const Footer: React.FC = () => {
               Connect with our master gemologists for personalized guidance on ring selection or custom creation.
             </p>
             <div className="pt-1">
-              <span className="text-xs text-[#E7C58A] block font-medium">concierge@divajewellers.com</span>
+              <span className="text-xs text-[#E7C58A] block font-medium">concierge@valeriejewellers.com</span>
               <span className="text-xs text-[#71665C] block mt-0.5">+91 1800 209 9999 (Toll Free)</span>
             </div>
             <div className="pt-2">
@@ -121,7 +121,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-[10px] sm:text-[11px] text-[#71665C] text-center md:text-left gap-4">
-          <p>© 2026 DIVA JEWELLERS PRIVATE LIMITED. ALL RIGHTS RESERVED.</p>
+          <p>© 2026 VALERIE JEWELLERS PRIVATE LIMITED. ALL RIGHTS RESERVED.</p>
           <div className="flex flex-wrap justify-center md:justify-end gap-x-5 gap-y-1.5">
             <span className="hover:text-[#E7C58A] cursor-pointer transition-colors">PRIVACY POLICY</span>
             <span className="hover:text-[#E7C58A] cursor-pointer transition-colors">TERMS OF SERVICE</span>

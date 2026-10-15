@@ -3,7 +3,7 @@ import { MessageCircle, Calendar, ShieldCheck, Gem, Sparkles, MapPin } from 'luc
 import { MagneticButton } from '../effects/MagneticButton';
 
 export const AtelierConciergeBanner: React.FC = () => {
-  const whatsappUrl = 'https://wa.me/919820123456?text=' + encodeURIComponent('Hello DIVA Atelier Concierge, I would like to schedule a private consultation for a bespoke ring commission.');
+  const whatsappUrl = 'https://wa.me/919820123456?text=' + encodeURIComponent('Hello VALERIE Atelier Concierge, I would like to schedule a private consultation for a bespoke ring commission.');
 
   return (
     <section className="bg-[#170C06] text-[#F8F2E9] py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-12 border-b border-[#C99A54]/25 relative overflow-hidden select-none">
@@ -27,7 +27,7 @@ export const AtelierConciergeBanner: React.FC = () => {
               </h2>
 
               <p className="text-xs sm:text-sm text-[#F8F2E9]/80 font-light leading-relaxed max-w-2xl">
-                Whether you seek private salon viewing in Mumbai or direct one-on-one video consultation with our chief gemologists in Antwerp, the DIVA Concierge caters to every facet of your commission.
+                Whether you seek private salon viewing in Mumbai or direct one-on-one video consultation with our chief gemologists in Antwerp, the VALERIE Concierge caters to every facet of your commission.
               </p>
 
               {/* Guarantees row */}

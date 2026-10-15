@@ -1,6 +1,6 @@
-# DIVA_jewellers
+# VALERIE_jewellers
 
-Exquisite rings crafted with timeless elegance for life's most beautiful moments. Discover DIVA Jewellers fine diamond, engagement, and bespoke rings.
+Exquisite rings crafted with timeless elegance for life's most beautiful moments. Discover VALERIE Jewellers fine diamond, engagement, and bespoke rings.
 
 ## Tech Stack
 - **Framework**: React 19

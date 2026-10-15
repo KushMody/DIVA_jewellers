@@ -67,7 +67,7 @@ export const SizeGuideModal: React.FC<SizeGuideModalProps> = ({
       >
         <div className="flex items-center justify-between border-b border-[#C99A54]/30 pb-4 mb-6">
           <div>
-            <span className="text-[10px] uppercase tracking-widest text-[#C99A54] block">DIVA ATELIER GUIDE</span>
+            <span className="text-[10px] uppercase tracking-widest text-[#C99A54] block">VALERIE ATELIER GUIDE</span>
             <h3 className="font-serif text-2xl text-[#170C06]">Indian Ring Size Guide</h3>
           </div>
           <button
@@ -106,7 +106,7 @@ export const SizeGuideModal: React.FC<SizeGuideModalProps> = ({
         {activeTab === 'chart' ? (
           <div>
             <p className="text-xs text-[#71665C] mb-4">
-              All DIVA rings follow standard Indian sizing metrics. Select your matching circumference or inner diameter below:
+              All VALERIE rings follow standard Indian sizing metrics. Select your matching circumference or inner diameter below:
             </p>
             <div className="overflow-x-auto border border-[#C99A54]/30">
               <table className="w-full text-left text-xs border-collapse">
@@ -179,7 +179,7 @@ export const SizeGuideModal: React.FC<SizeGuideModalProps> = ({
               </p>
             </div>
             <p className="text-[11px] italic text-[#C99A54]">
-              * Complimentary resizing is provided on all DIVA Jewellers solitaire rings within 30 days of purchase.
+              * Complimentary resizing is provided on all VALERIE Jewellers solitaire rings within 30 days of purchase.
             </p>
           </div>
         )}

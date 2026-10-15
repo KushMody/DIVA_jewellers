@@ -316,7 +316,7 @@ export const PinnedHorizontalVault: React.FC = () => {
                 </h3>
 
                 <p className="text-[11px] sm:text-xs md:text-sm text-[#71665C] font-light leading-relaxed max-w-lg mx-auto line-clamp-3 sm:line-clamp-none">
-                  Every DIVA creation passes Marcel Tolkowsky optical ratios, 40x Swiss binocular pavé tolerance, and Kimberley Process conflict-free verification.
+                  Every VALERIE creation passes Marcel Tolkowsky optical ratios, 40x Swiss binocular pavé tolerance, and Kimberley Process conflict-free verification.
                 </p>
 
                 <div className="pt-1 sm:pt-2 flex flex-wrap justify-center gap-3">

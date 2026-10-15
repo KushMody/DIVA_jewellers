@@ -14,15 +14,15 @@ interface WishlistContextType {
 
 const WishlistContext = createContext<WishlistContextType | undefined>(undefined);
 
-const LOCAL_STORAGE_KEY = 'diva_jewellers_wishlist';
+const LOCAL_STORAGE_KEY = 'valerie_jewellers_wishlist';
 
 export const WishlistProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [wishlistIds, setWishlistIds] = useState<string[]>(() => {
     try {
       const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
-      return stored ? JSON.parse(stored) : ['diva-01']; // Default with 1 item for initial demonstration
+      return stored ? JSON.parse(stored) : ['valerie-01']; // Default with 1 item for initial demonstration
     } catch {
-      return ['diva-01'];
+      return ['valerie-01'];
     }
   });
 

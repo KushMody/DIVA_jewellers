@@ -185,7 +185,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
 
         <a
           href={`https://wa.me/919820123456?text=${encodeURIComponent(
-            `Hello DIVA Atelier Concierge, I would like to inquire about "${product.name}" in ${chosenMetalObj?.name || '18K Gold'} (Size ${selectedSize || 14}).`
+            `Hello VALERIE Atelier Concierge, I would like to inquire about "${product.name}" in ${chosenMetalObj?.name || '18K Gold'} (Size ${selectedSize || 14}).`
           )}`}
           target="_blank"
           rel="noopener noreferrer"

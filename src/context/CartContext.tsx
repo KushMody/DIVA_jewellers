@@ -37,7 +37,7 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-const LOCAL_STORAGE_KEY = 'diva_jewellers_cart';
+const LOCAL_STORAGE_KEY = 'valerie_jewellers_cart';
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [items, setItems] = useState<CartItem[]>(() => {
@@ -56,7 +56,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
           size: 14,
           price: defaultProd.price,
           image: defaultProd.mainImage,
-          engravingText: 'DIVA • 2026',
+          engravingText: 'VALERIE • 2026',
           serialNumber: 42,
           quantity: 1,
         },

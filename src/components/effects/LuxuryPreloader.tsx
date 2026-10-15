@@ -144,7 +144,7 @@ export const LuxuryPreloader: React.FC<LuxuryPreloaderProps> = ({
               transition={{ duration: 0.9, delay: 0.6 }}
               className="font-serif text-3xl sm:text-4xl tracking-[0.22em] text-[#F8F2E9] font-normal"
             >
-              DIVA
+              VALERIE
             </motion.h1>
 
             <motion.p

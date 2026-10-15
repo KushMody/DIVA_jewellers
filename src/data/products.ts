@@ -72,7 +72,7 @@ export const BRAND_PROMISES: BrandPromise[] = [
 
 export const PRODUCTS: Product[] = [
   {
-    id: 'diva-01',
+    id: 'valerie-01',
     slug: 'solitaire-twisted-band',
     name: 'Solitaire Twisted Band Ring',
     collectionName: 'THE ETERNAL RADIANCE',
@@ -123,7 +123,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 48,
   },
   {
-    id: 'diva-02',
+    id: 'valerie-02',
     slug: 'classic-solitaire',
     name: 'Classic Solitaire Ring',
     collectionName: 'TIMELESS MAJESTY',
@@ -166,7 +166,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 39,
   },
   {
-    id: 'diva-03',
+    id: 'valerie-03',
     slug: 'halo-grace',
     name: 'Halo Grace Ring',
     collectionName: 'CELESTIAL BLOOM',
@@ -204,7 +204,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 52,
   },
   {
-    id: 'diva-04',
+    id: 'valerie-04',
     slug: 'regal-emerald',
     name: 'Regal Emerald Ring',
     collectionName: 'ROYAL IMPERIAL',
@@ -241,7 +241,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 27,
   },
   {
-    id: 'diva-05',
+    id: 'valerie-05',
     slug: 'diamond-wedding-band',
     name: 'Diamond Wedding Band',
     collectionName: 'SACRED UNION',
@@ -278,7 +278,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 31,
   },
   {
-    id: 'diva-06',
+    id: 'valerie-06',
     slug: 'sapphire-elegance',
     name: 'Sapphire Elegance Ring',
     collectionName: 'OCEANIC SOVEREIGN',
@@ -315,7 +315,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 22,
   },
   {
-    id: 'diva-07',
+    id: 'valerie-07',
     slug: 'ruby-heritage',
     name: 'Ruby Heritage Ring',
     collectionName: 'DYNASTY HEIRLOOM',
@@ -352,7 +352,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 19,
   },
   {
-    id: 'diva-08',
+    id: 'valerie-08',
     slug: 'floral-diamond',
     name: 'Floral Diamond Ring',
     collectionName: "NATURE'S WHISPER",
@@ -389,7 +389,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 34,
   },
   {
-    id: 'diva-09',
+    id: 'valerie-09',
     slug: 'minimalist-gold',
     name: 'Minimalist Gold Ring',
     collectionName: 'MODERN ARCHITECT',
@@ -426,7 +426,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 18,
   },
   {
-    id: 'diva-10',
+    id: 'valerie-10',
     slug: 'vintage-royal',
     name: 'Vintage Royal Ring',
     collectionName: 'VICTORIAN GRACE',
@@ -463,7 +463,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 41,
   },
   {
-    id: 'diva-11',
+    id: 'valerie-11',
     slug: 'pave-diamond-band',
     name: 'Pavé Diamond Band',
     collectionName: 'INFINITE SPARK',
@@ -500,7 +500,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 29,
   },
   {
-    id: 'diva-12',
+    id: 'valerie-12',
     slug: 'custom-design-ring',
     name: 'Custom Design Ring',
     collectionName: 'BESPOKE ATELIER',
@@ -509,7 +509,7 @@ export const PRODUCTS: Product[] = [
     price: 199999,
     originalPrice: 220000,
     shortDescription: 'A one-of-a-kind bespoke creation born from initial hand sketches to master goldsmith execution.',
-    fullDescription: 'Experience the pinnacle of DIVA Jewellers bespoke haute joaillerie. Work directly with our master designers to hand-select individual certified diamonds and gemstones, creating an eternal heirloom unique to your story.',
+    fullDescription: 'Experience the pinnacle of VALERIE Jewellers bespoke haute joaillerie. Work directly with our master designers to hand-select individual certified diamonds and gemstones, creating an eternal heirloom unique to your story.',
     mainImage: '/images/products/custom-design-ring.webp',
     gallery: [
       '/images/products/custom-design-ring.webp',
@@ -577,7 +577,7 @@ export const HERO_SLIDES = [
     supportingCopy: 'Architectural geometry meeting royal heritage,\ncrafted in solid 18K gold and fine gemstones.',
     ctaText: 'VIEW FASHION RINGS',
     ctaLink: '/collections/fashion-rings',
-    editorialText: ['HERITAGE', 'MAJESTY', 'TIMELESS', 'PASSION', 'DIVA'],
+    editorialText: ['HERITAGE', 'MAJESTY', 'TIMELESS', 'PASSION', 'VALERIE'],
     image: '/images/hero/hero-slide-3.webp',
     productSlug: 'regal-emerald',
   },

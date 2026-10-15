@@ -216,7 +216,7 @@ export const ScrollMetricCounter: React.FC = () => {
             </span>
           </div>
           <div className="text-[11px] text-[#71665C] tracking-wider">
-            SWISS GEMMOLOGICAL RIGOR • CERTIFICATE N° DIVA-2026-CH
+            SWISS GEMMOLOGICAL RIGOR • CERTIFICATE N° VALERIE-2026-CH
           </div>
         </div>
       </div>

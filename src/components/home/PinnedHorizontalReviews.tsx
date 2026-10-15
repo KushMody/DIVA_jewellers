@@ -27,7 +27,7 @@ const STORIES: ReviewStory[] = [
     serialNumber: 42,
     date: 'February 2026',
     quote: 'The 360 inspector and laser serial engraving gave us complete confidence before visiting the atelier.',
-    fullStory: 'We spent weeks researching diamond jewellers in Mumbai. What set DIVA apart was the utter transparency of their Swiss chapter horology standards. Seeing edition #042/250 stamped on the shank made our engagement unforgettable.',
+    fullStory: 'We spent weeks researching diamond jewellers in Mumbai. What set VALERIE apart was the utter transparency of their Swiss chapter horology standards. Seeing edition #042/250 stamped on the shank made our engagement unforgettable.',
   },
   {
     id: 'rev-2',

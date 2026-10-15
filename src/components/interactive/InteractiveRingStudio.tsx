@@ -59,7 +59,7 @@ export const InteractiveRingStudio: React.FC = () => {
   const totalPrice = diamondCost + goldCost + accentCost + craftsmanshipCost;
 
   const handleSaveToWishlist = () => {
-    toggleWishlist('diva-01');
+    toggleWishlist('valerie-01');
     setSavedSuccess(true);
     setTimeout(() => setSavedSuccess(false), 3000);
   };
@@ -71,7 +71,7 @@ export const InteractiveRingStudio: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-[#170C06] border border-[#C99A54]/40 rounded-full text-[10px] tracking-[0.25em] text-[#E7C58A] uppercase mb-4">
             <Sliders className="w-3.5 h-3.5 text-[#C99A54]" />
-            <span>DIVA ATELIER BESPOKE CONFIGURATOR</span>
+            <span>VALERIE ATELIER BESPOKE CONFIGURATOR</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#18130F] font-normal tracking-wide">

@@ -22,7 +22,7 @@ export const ProductDetailPage: React.FC = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = `${product.name} — DIVA JEWELLERS`;
+    document.title = `${product.name} — VALERIE JEWELLERS`;
   }, [product, slug]);
 
   if (!product) {

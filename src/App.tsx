@@ -23,7 +23,7 @@ const PageLoadingFallback: React.FC = () => (
   <div className="min-h-[70vh] flex flex-col items-center justify-center p-8 bg-[#170C06] text-[#E7C58A] select-none">
     <div className="w-12 h-12 border-2 border-[#C99A54]/30 border-t-[#E7C58A] rounded-full animate-spin mb-4" />
     <span className="text-[10px] tracking-[0.35em] uppercase font-mono text-[#C99A54]">
-      DIVA ATELIER • LOADING
+      VALERIE ATELIER • LOADING
     </span>
   </div>
 );

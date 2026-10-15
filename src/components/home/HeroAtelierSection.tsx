@@ -231,7 +231,7 @@ export const HeroAtelierSection: React.FC = () => {
         </div>
 
         <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[76px] tracking-[0.06em] text-[#F8F2E9] font-normal drop-shadow-md">
-          DIVA
+          VALERIE
         </h1>
 
         <div className="flex items-center justify-center space-x-3 mt-1 text-[11px] tracking-[0.3em] uppercase text-[#C99A54] font-light">

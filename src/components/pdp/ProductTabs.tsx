@@ -124,7 +124,7 @@ export const ProductTabs: React.FC<ProductTabsProps> = ({ product }) => {
               <strong className="text-[#170C06] uppercase tracking-wider block mb-1">
                 Lifetime Care & Polish
               </strong>
-              Every DIVA ring includes complimentary annual ultrasonic cleaning, prong tightening, and rhodium replenishment at any of our flagship salons.
+              Every VALERIE ring includes complimentary annual ultrasonic cleaning, prong tightening, and rhodium replenishment at any of our flagship salons.
             </p>
           </div>
         )}

@@ -12,7 +12,7 @@ import { ScrollReveal } from '../components/effects/ScrollReveal';
 export const CraftsmanshipPage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'Craftsmanship & Metallurgy — DIVA JEWELLERS';
+    document.title = 'Craftsmanship & Metallurgy — VALERIE JEWELLERS';
   }, []);
 
   return (
@@ -39,7 +39,7 @@ export const CraftsmanshipPage: React.FC = () => {
             Master Craftsmanship & Metallurgy
           </h1>
           <p className="text-xs sm:text-sm text-[#71665C] font-light leading-relaxed mt-3">
-            Every ring at DIVA undergoes more than 40 hours of meticulous hand-finishing, microscopic stone calibration, and rigorous quality inspection.
+            Every ring at VALERIE undergoes more than 40 hours of meticulous hand-finishing, microscopic stone calibration, and rigorous quality inspection.
           </p>
 
           <div className="flex items-center justify-center space-x-3 mt-4">

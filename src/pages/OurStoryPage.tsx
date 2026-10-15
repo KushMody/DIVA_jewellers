@@ -8,7 +8,7 @@ import { ScrollReveal } from '../components/effects/ScrollReveal';
 export const OurStoryPage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'Our Story & Provenance — DIVA JEWELLERS';
+    document.title = 'Our Story & Provenance — VALERIE JEWELLERS';
   }, []);
 
   return (
@@ -30,7 +30,7 @@ export const OurStoryPage: React.FC = () => {
         <div className="relative h-[260px] sm:h-[340px] md:h-[420px] bg-[#170C06] overflow-hidden border border-[#C99A54]/30 mb-12 sm:mb-16 flex items-center justify-center text-center p-4 sm:p-8">
           <img
             src="/images/products/custom-design-ring.webp"
-            alt="DIVA Jewellers Heritage Atelier"
+            alt="VALERIE Jewellers Heritage Atelier"
             className="absolute inset-0 w-full h-full object-cover opacity-35"
           />
           <div className="relative z-10 max-w-2xl text-[#F8F2E9] space-y-2.5 sm:space-y-4">
@@ -57,7 +57,7 @@ export const OurStoryPage: React.FC = () => {
                 Three Generations of Discerning Artistry
               </h2>
               <p className="text-xs sm:text-sm text-[#71665C] leading-relaxed">
-                For over three decades, DIVA JEWELLERS has redefined luxury fine jewellery in India. We combine royal Mughal-era artisanal metalwork with contemporary European minimalism to sculpt rings that stand outside the whims of passing trends.
+                For over three decades, VALERIE JEWELLERS has redefined luxury fine jewellery in India. We combine royal Mughal-era artisanal metalwork with contemporary European minimalism to sculpt rings that stand outside the whims of passing trends.
               </p>
               <p className="text-xs sm:text-sm text-[#71665C] leading-relaxed">
                 Every diamond selected for our engagement and ceremonial rings is individually inspected by certified gemologists for optical brilliance, fire, and cut precision before our master bench jewelers set a single prong.
@@ -96,7 +96,7 @@ export const OurStoryPage: React.FC = () => {
         <div className="bg-[#170C06] text-[#F8F2E9] p-8 md:p-14 border border-[#C99A54]/30">
           <div className="text-center max-w-xl mx-auto mb-10">
             <span className="text-xs tracking-[0.3em] text-[#E7C58A] uppercase block mb-1">OUR PHILOSOPHY</span>
-            <h3 className="font-serif text-2xl sm:text-3xl">Pillars of DIVA</h3>
+            <h3 className="font-serif text-2xl sm:text-3xl">Pillars of VALERIE</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-2 border-l border-[#C99A54]/30 pl-4">
@@ -117,7 +117,7 @@ export const OurStoryPage: React.FC = () => {
               <span className="text-xs text-[#E7C58A] font-mono">03</span>
               <h4 className="font-serif text-lg">Eternal Care</h4>
               <p className="text-xs text-[#71665C] leading-relaxed">
-                A ring from DIVA carries our commitment for a lifetime. Complimentary maintenance, sizing, and inspection forever.
+                A ring from VALERIE carries our commitment for a lifetime. Complimentary maintenance, sizing, and inspection forever.
               </p>
             </div>
           </div>

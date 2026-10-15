@@ -135,7 +135,7 @@ export const Header: React.FC<HeaderProps> = ({ isTransparent = false }) => {
             </div>
             <div className="flex flex-col text-left">
               <span className="font-serif text-xl md:text-2xl tracking-[0.18em] text-[#F8F2E9] font-medium leading-tight">
-                DIVA
+                VALERIE
               </span>
               <span className="text-[9px] md:text-[10px] tracking-[0.42em] text-[#C99A54] uppercase font-light -mt-0.5">
                 JEWELLERS

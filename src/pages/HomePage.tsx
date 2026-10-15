@@ -16,7 +16,7 @@ export const HomePage: React.FC = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'DIVA JEWELLERS — Timeless Ring Stories & Fine Luxury Jewellery';
+    document.title = 'VALERIE JEWELLERS — Timeless Ring Stories & Fine Luxury Jewellery';
   }, []);
 
   return (

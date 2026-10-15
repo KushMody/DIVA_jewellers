@@ -357,7 +357,7 @@ export const Gemological4CExplorer: React.FC = () => {
                   PROPORTION & FACET ANGLES
                 </span>
                 <h3 className="font-serif text-xl sm:text-2xl text-[#F8F2E9]">
-                  {cutGrade === 'ideal' ? 'DIVA Triple Excellent (Tolkowsky)' : cutGrade === 'shallow' ? 'Shallow Cut (Fisheye Effect)' : 'Deep Cut (Nailhead Effect)'}
+                  {cutGrade === 'ideal' ? 'VALERIE Triple Excellent (Tolkowsky)' : cutGrade === 'shallow' ? 'Shallow Cut (Fisheye Effect)' : 'Deep Cut (Nailhead Effect)'}
                 </h3>
                 <p className="text-xs text-[#71665C] leading-relaxed mt-1 sm:mt-2">
                   Of the 4Cs, **Cut** is the only one dictated by human craftsmanship rather than nature. Precise 57-facet geometry dictates whether a diamond blazes with rainbow scintillation or appears dull and lifeless.
@@ -487,7 +487,7 @@ export const Gemological4CExplorer: React.FC = () => {
               <div className="p-3 sm:p-3.5 bg-[#201007] border border-[#C99A54]/30 rounded-xs text-xs text-[#71665C] space-y-1 sm:space-y-1.5">
                 <div className="flex items-center space-x-2 text-[#E7C58A]">
                   <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                  <span className="font-semibold uppercase tracking-wider text-[10px] sm:text-[11px]">DIVA ATELIER STANDARD</span>
+                  <span className="font-semibold uppercase tracking-wider text-[10px] sm:text-[11px]">VALERIE ATELIER STANDARD</span>
                 </div>
                 <p className="leading-relaxed text-[11px] sm:text-xs">
                   We strictly set grades **D, E, and F** in all engagement and ceremonial solitaire pieces to ensure unmatched icy whiteness.

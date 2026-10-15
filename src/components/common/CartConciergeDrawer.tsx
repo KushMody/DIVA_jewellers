@@ -38,7 +38,7 @@ export const CartConciergeDrawer: React.FC = () => {
   // Generate WhatsApp Concierge Consultation Link
   const generateWhatsAppUrl = () => {
     const phone = '919820123456'; // Sample Maison Concierge number
-    let text = `Hello DIVA Atelier Concierge, I would like to reserve the following fine creations from my Vault Bag:\n\n`;
+    let text = `Hello VALERIE Atelier Concierge, I would like to reserve the following fine creations from my Vault Bag:\n\n`;
     items.forEach((item, idx) => {
       text += `${idx + 1}. *${item.name}*\n`;
       text += `   - Metal: ${item.metal}\n`;

@@ -23,7 +23,7 @@ export const RingsPage: React.FC = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'Ring Collections — DIVA JEWELLERS';
+    document.title = 'Ring Collections — VALERIE JEWELLERS';
   }, []);
 
   const categoryFilters = [

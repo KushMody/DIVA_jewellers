@@ -9,7 +9,7 @@ export const WishlistPage: React.FC = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'My Saved Rings — DIVA JEWELLERS';
+    document.title = 'My Saved Rings — VALERIE JEWELLERS';
   }, []);
 
   return (
