@@ -65,18 +65,34 @@ export const DiamondLightSimulator: React.FC = () => {
   const [lightAngle, setLightAngle] = useState<number>(45); // degrees 0-360
   const [scintillationIntensity, setScintillationIntensity] = useState<number>(85);
   const [isAutoRotatingLight, setIsAutoRotatingLight] = useState<boolean>(true);
+  const [isInView, setIsInView] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const preset = LIGHTING_PRESETS.find((p) => p.id === activePreset) || LIGHTING_PRESETS[0];
 
-  // Auto-rotate the light angle gently
+  // Pause off-screen intervals using IntersectionObserver
   useEffect(() => {
-    if (!isAutoRotatingLight) return;
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { rootMargin: '100px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto-rotate the light angle gently only when in view
+  useEffect(() => {
+    if (!isAutoRotatingLight || !isInView) return;
     const interval = setInterval(() => {
       setLightAngle((prev) => (prev + 1.2) % 360);
     }, 40);
     return () => clearInterval(interval);
-  }, [isAutoRotatingLight]);
+  }, [isAutoRotatingLight, isInView]);
 
   // Mouse / touch interactive light position
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -110,7 +126,7 @@ export const DiamondLightSimulator: React.FC = () => {
   ];
 
   return (
-    <section className="bg-[#170C06] text-[#F8F2E9] py-16 md:py-24 px-4 sm:px-6 md:px-12 border-b border-[#C99A54]/25 relative overflow-hidden">
+    <section ref={sectionRef} className="bg-[#170C06] text-[#F8F2E9] py-16 md:py-24 px-4 sm:px-6 md:px-12 border-b border-[#C99A54]/25 relative overflow-hidden">
       <div className="max-w-[1536px] mx-auto relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
@@ -169,15 +185,16 @@ export const DiamondLightSimulator: React.FC = () => {
             >
               {/* Top readout */}
               <div className="flex items-center justify-between z-20">
-                <div className="flex items-center space-x-2 text-[11px] text-[#C99A54] font-mono tracking-wider">
-                  <span className="w-2 h-2 rounded-full bg-[#C99A54] animate-ping" />
-                  <span className="uppercase">{preset.subtitle}</span>
+                <div className="flex items-center space-x-2 text-[10px] sm:text-[11px] text-[#C99A54] font-mono tracking-wider min-w-0 pr-2">
+                  <span className="w-2 h-2 rounded-full bg-[#C99A54] animate-ping shrink-0" />
+                  <span className="uppercase truncate max-w-[130px] sm:max-w-none">{preset.subtitle}</span>
                 </div>
-                <div className="flex items-center space-x-2 bg-black/50 px-2.5 py-1 border border-[#C99A54]/30 text-[10px] text-[#E7C58A] font-mono">
-                  <span>LIGHT BEARING: {Math.round(lightAngle)}°</span>
+                <div className="flex items-center space-x-1.5 sm:space-x-2 bg-black/50 px-2 sm:px-2.5 py-1 border border-[#C99A54]/30 text-[9px] sm:text-[10px] text-[#E7C58A] font-mono shrink-0">
+                  <span className="hidden sm:inline">LIGHT BEARING: </span>
+                  <span>{Math.round(lightAngle)}°</span>
                   <button
                     onClick={() => setIsAutoRotatingLight(!isAutoRotatingLight)}
-                    className="hover:text-white transition-colors ml-1 p-0.5"
+                    className="hover:text-white transition-colors ml-1 p-0.5 cursor-pointer"
                     title="Toggle auto orbit"
                   >
                     <RefreshCw className={`w-3 h-3 ${isAutoRotatingLight ? 'animate-spin' : ''}`} />

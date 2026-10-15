@@ -249,7 +249,7 @@ export const SmartRingCalibrator: React.FC = () => {
 
                 {/* Simulated Card Outline */}
                 <div
-                  className="h-14 border border-dashed border-white/60 bg-white/5 rounded-xs flex items-center justify-center text-[10px] text-white/70 mx-auto transition-all"
+                  className="h-14 max-w-full border border-dashed border-white/60 bg-white/5 rounded-xs flex items-center justify-center text-[10px] text-white/70 mx-auto transition-all text-center px-1"
                   style={{ width: `${Math.min(340, creditCardPx)}px` }}
                 >
                   CREDIT CARD WIDTH (85.6 MM)

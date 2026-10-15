@@ -12,8 +12,8 @@ export const RecommendedProducts: React.FC<RecommendedProductsProps> = ({ curren
   const pool = PRODUCTS.filter((p) => p.id !== currentProductId);
   const [startIndex, setStartIndex] = useState(0);
 
-  // Show 3 items at a time matching Reference Image 2
-  const visibleCount = 3;
+  // Show 2 items at a time to fit cleanly in PDP sidebar and mobile screens
+  const visibleCount = 2;
   const maxIndex = Math.max(0, pool.length - visibleCount);
 
   const handlePrev = () => {
@@ -27,8 +27,8 @@ export const RecommendedProducts: React.FC<RecommendedProductsProps> = ({ curren
   const visibleProducts = pool.slice(startIndex, startIndex + visibleCount);
 
   return (
-    <div className="pt-10 border-t border-[#C99A54]/30 mt-12">
-      <div className="flex items-center justify-between mb-6">
+    <div className="pt-8 sm:pt-10 border-t border-[#C99A54]/30 mt-8 sm:mt-12">
+      <div className="flex items-center justify-between mb-4 sm:mb-6">
         <h3 className="text-xs sm:text-sm tracking-[0.25em] text-[#170C06] uppercase font-medium">
           YOU MAY ALSO LIKE
         </h3>
@@ -62,8 +62,8 @@ export const RecommendedProducts: React.FC<RecommendedProductsProps> = ({ curren
         </div>
       </div>
 
-      {/* 3 Recommended Cards matching Reference 2 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+      {/* 2 Recommended Cards matching sidebar width */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {visibleProducts.map((product) => (
           <ProductCard key={product.id} product={product} compact />
         ))}

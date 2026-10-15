@@ -99,13 +99,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, compact = fal
           </div>
 
           {/* Info Container */}
-          <div className={`flex flex-col pt-3.5 ${compact ? 'pb-1' : 'pb-4'}`}>
-            <span className="text-[10px] tracking-[0.25em] text-[#C99A54] uppercase font-medium mb-1">
+          <div className={`flex flex-col pt-3 sm:pt-3.5 ${compact ? 'pb-1' : 'pb-4'}`}>
+            <span className="text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] text-[#C99A54] uppercase font-medium mb-0.5 sm:mb-1">
               {product.collectionName}
             </span>
             <Link
               to={`/rings/${product.slug}`}
-              className="font-serif text-lg md:text-xl text-[#18130F] group-hover:text-[#C99A54] transition-colors leading-snug line-clamp-1"
+              className={`font-serif ${
+                compact ? 'text-base sm:text-lg' : 'text-lg md:text-xl'
+              } text-[#18130F] group-hover:text-[#C99A54] transition-colors leading-snug line-clamp-1`}
             >
               {product.name}
             </Link>
@@ -132,12 +134,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, compact = fal
         </div>
       </TiltCard>
 
-      {/* Quick View Modal */}
-      <QuickViewModal
-        product={product}
-        isOpen={isQuickViewOpen}
-        onClose={() => setIsQuickViewOpen(false)}
-      />
+      {/* Quick View Modal (Only mounted when opened for DOM tree optimization) */}
+      {isQuickViewOpen && (
+        <QuickViewModal
+          product={product}
+          isOpen={isQuickViewOpen}
+          onClose={() => setIsQuickViewOpen(false)}
+        />
+      )}
     </>
   );
 };

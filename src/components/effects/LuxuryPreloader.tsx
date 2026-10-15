@@ -8,10 +8,17 @@ interface LuxuryPreloaderProps {
 
 export const LuxuryPreloader: React.FC<LuxuryPreloaderProps> = ({
   onComplete,
-  durationMs = 2400,
+  durationMs = 2000,
 }) => {
   const [progress, setProgress] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
+
+  const handleFinish = () => {
+    setIsFinished(true);
+    setTimeout(() => {
+      if (onComplete) onComplete();
+    }, 1000);
+  };
 
   useEffect(() => {
     const startTime = performance.now();
@@ -25,10 +32,7 @@ export const LuxuryPreloader: React.FC<LuxuryPreloaderProps> = ({
       if (rawProgress < 100) {
         requestAnimationFrame(updateProgress);
       } else {
-        setTimeout(() => {
-          setIsFinished(true);
-          if (onComplete) onComplete();
-        }, 350);
+        setTimeout(handleFinish, 300);
       }
     };
 
@@ -172,8 +176,16 @@ export const LuxuryPreloader: React.FC<LuxuryPreloaderProps> = ({
             </span>
           </div>
 
+          {/* Skip / Enter Action */}
+          <button
+            onClick={handleFinish}
+            className="mt-6 px-4 py-1.5 border border-[#C99A54]/40 hover:border-[#E7C58A] bg-[#1a0b05]/80 hover:bg-[#C99A54]/20 text-[10px] font-mono tracking-widest text-[#E7C58A] uppercase rounded-full transition-all cursor-pointer shadow-lg"
+          >
+            ENTER ATELIER →
+          </button>
+
           {/* Bottom Luxury Legal Line */}
-          <div className="absolute bottom-6 text-[9px] tracking-[0.3em] uppercase text-[#71665C] font-mono">
+          <div className="absolute bottom-5 sm:bottom-6 px-4 text-center text-[9px] tracking-[0.25em] sm:tracking-[0.3em] uppercase text-[#71665C] font-mono max-w-sm sm:max-w-none">
             SWISS & INDIAN HOROLOGY STANDARDS • BIS 750
           </div>
         </motion.div>

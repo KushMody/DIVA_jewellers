@@ -144,16 +144,16 @@ export const RingsPage: React.FC = () => {
           </div>
 
           {/* Sort Controls */}
-          <div className="flex items-center space-x-4">
-            <span className="text-xs text-[#71665C] uppercase tracking-wider hidden sm:inline">
+          <div className="flex items-center justify-between sm:justify-end w-full sm:w-auto space-x-3 sm:space-x-4">
+            <span className="text-xs text-[#71665C] uppercase tracking-wider">
               {sortedProducts.length} Rings
             </span>
             <div className="flex items-center space-x-2 text-xs text-[#170C06]">
-              <ArrowUpDown className="w-3.5 h-3.5 text-[#C99A54]" />
+              <ArrowUpDown className="w-3.5 h-3.5 text-[#C99A54] shrink-0" />
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-                className="bg-transparent border border-[#C99A54]/30 px-3 py-1.5 text-xs focus:outline-none focus:border-[#C99A54] cursor-pointer"
+                className="bg-transparent border border-[#C99A54]/30 px-2.5 py-1.5 text-xs focus:outline-none focus:border-[#C99A54] cursor-pointer"
               >
                 <option value="featured">Sort by: Featured</option>
                 <option value="price-asc">Price: Low to High</option>

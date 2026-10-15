@@ -53,19 +53,35 @@ const HOTSPOTS: AnatomyHotspot[] = [
 export const Ring360Inspector: React.FC = () => {
   const [rotationAngle, setRotationAngle] = useState<number>(0); // 0 to 360
   const [isAutoRotating, setIsAutoRotating] = useState<boolean>(true);
+  const [isInView, setIsInView] = useState<boolean>(false);
   const [activeHotspot, setActiveHotspot] = useState<AnatomyHotspot | null>(HOTSPOTS[0]);
   const [isZoomed, setIsZoomed] = useState<boolean>(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const isDragging = useRef<boolean>(false);
   const lastMouseX = useRef<number>(0);
 
-  // Auto-rotate the ring slowly
+  // Observe visibility to avoid rendering 25fps intervals off-screen
   useEffect(() => {
-    if (!isAutoRotating) return;
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { rootMargin: '100px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto-rotate the ring slowly only when in view and active
+  useEffect(() => {
+    if (!isAutoRotating || !isInView) return;
     const interval = setInterval(() => {
       setRotationAngle((prev) => (prev + 0.8) % 360);
     }, 40);
     return () => clearInterval(interval);
-  }, [isAutoRotating]);
+  }, [isAutoRotating, isInView]);
 
   // Touch and mouse drag handlers
   const handlePointerDown = (e: React.PointerEvent) => {
@@ -106,7 +122,7 @@ export const Ring360Inspector: React.FC = () => {
   };
 
   return (
-    <section className="bg-[#170C06] text-[#F8F2E9] py-16 md:py-24 px-4 sm:px-6 md:px-12 border-b border-[#C99A54]/25 relative overflow-hidden">
+    <section ref={sectionRef} className="bg-[#170C06] text-[#F8F2E9] py-16 md:py-24 px-4 sm:px-6 md:px-12 border-b border-[#C99A54]/25 relative overflow-hidden">
       <div className="max-w-[1536px] mx-auto relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
@@ -145,18 +161,19 @@ export const Ring360Inspector: React.FC = () => {
             >
               {/* Top Bar: Perspective readout and controls */}
               <div className="flex items-center justify-between z-20">
-                <div className="flex items-center space-x-2 text-[11px] text-[#C99A54] font-mono tracking-wider">
-                  <span className="w-2 h-2 rounded-full bg-[#C99A54] animate-pulse" />
-                  <span className="uppercase">{getPerspectiveLabel(normalizedAngle)}</span>
+                <div className="flex items-center space-x-2 text-[10px] sm:text-[11px] text-[#C99A54] font-mono tracking-wider min-w-0 pr-2">
+                  <span className="w-2 h-2 rounded-full bg-[#C99A54] animate-pulse shrink-0" />
+                  <span className="uppercase truncate max-w-[130px] sm:max-w-none">{getPerspectiveLabel(normalizedAngle)}</span>
                 </div>
 
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-2 sm:space-x-3 shrink-0">
                   <button
                     onClick={() => setIsAutoRotating(!isAutoRotating)}
-                    className="flex items-center space-x-1.5 bg-black/60 hover:bg-black/90 border border-[#C99A54]/30 px-2.5 py-1 text-[10px] text-[#E7C58A] rounded-2xs transition-colors"
+                    className="flex items-center space-x-1.5 bg-black/60 hover:bg-black/90 border border-[#C99A54]/30 px-2 sm:px-2.5 py-1 text-[9px] sm:text-[10px] text-[#E7C58A] rounded-2xs transition-colors cursor-pointer"
                   >
                     <RotateCw className={`w-3 h-3 ${isAutoRotating ? 'animate-spin' : ''}`} />
-                    <span>{isAutoRotating ? 'PAUSE ROTATION' : 'AUTO ORBIT'}</span>
+                    <span className="hidden sm:inline">{isAutoRotating ? 'PAUSE ROTATION' : 'AUTO ORBIT'}</span>
+                    <span className="sm:hidden">{isAutoRotating ? 'PAUSE' : 'ORBIT'}</span>
                   </button>
 
                   <button

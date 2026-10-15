@@ -55,27 +55,27 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ product, isOpen,
       onClick={onClose}
     >
       <div
-        className="w-full max-w-4xl bg-[#F8F2E9] border border-[#C99A54]/40 shadow-2xl rounded-xs overflow-hidden text-[#18130F] max-h-[90vh] flex flex-col md:flex-row relative"
+        className="w-full max-w-4xl bg-[#F8F2E9] border border-[#C99A54]/40 shadow-2xl rounded-xs overflow-y-auto md:overflow-hidden text-[#18130F] max-h-[92vh] flex flex-col md:flex-row relative"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3.5 right-3.5 z-30 text-[#71665C] hover:text-[#170C06] bg-white/80 hover:bg-white p-2 rounded-full shadow-md backdrop-blur-xs transition-all cursor-pointer"
+          className="absolute top-2.5 right-2.5 sm:top-3.5 sm:right-3.5 z-30 text-[#71665C] hover:text-[#170C06] bg-white/80 hover:bg-white p-1.5 sm:p-2 rounded-full shadow-md backdrop-blur-xs transition-all cursor-pointer"
           aria-label="Close modal"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
 
         {/* Left Column: Image & Gallery */}
-        <div className="w-full md:w-1/2 bg-[#170C06] p-5 sm:p-7 flex flex-col justify-between shrink-0">
-          <div className="relative aspect-[4/3] sm:aspect-square w-full overflow-hidden rounded-xs border border-[#C99A54]/30 bg-black/30 flex items-center justify-center">
+        <div className="w-full md:w-1/2 bg-[#170C06] p-4 sm:p-7 flex flex-col justify-between shrink-0">
+          <div className="relative max-h-[190px] sm:max-h-none aspect-[16/10] sm:aspect-square w-full overflow-hidden rounded-xs border border-[#C99A54]/30 bg-black/30 flex items-center justify-center">
             <img
               src={currentImg}
               alt={product.name}
               className="w-full h-full object-cover transition-all duration-300"
             />
-            <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 bg-[#170C06]/90 border border-[#C99A54]/30 text-[9px] tracking-widest text-[#E7C58A] uppercase font-mono">
+            <div className="absolute top-2 left-2 px-2 py-0.5 bg-[#170C06]/90 border border-[#C99A54]/30 text-[8px] sm:text-[9px] tracking-widest text-[#E7C58A] uppercase font-mono">
               {product.categoryLabel}
             </div>
           </div>

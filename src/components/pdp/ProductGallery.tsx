@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ChevronDown, Maximize2, X } from 'lucide-react';
 import { GemologicalLoupeMagnifier } from '../effects/GemologicalLoupeMagnifier';
 
@@ -10,6 +10,25 @@ interface ProductGalleryProps {
 export const ProductGallery: React.FC<ProductGalleryProps> = ({ images, productName }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isZoomOpen, setIsZoomOpen] = useState(false);
+
+  useEffect(() => {
+    if (isZoomOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isZoomOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isZoomOpen) setIsZoomOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isZoomOpen]);
 
   const currentImage = images[selectedIndex] || images[0];
 

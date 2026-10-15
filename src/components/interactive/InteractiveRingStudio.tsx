@@ -304,12 +304,12 @@ export const InteractiveRingStudio: React.FC = () => {
                 <span>Band Setting Style</span>
               </label>
 
-              <div className="flex gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 {BAND_STYLES.map((bs) => (
                   <button
                     key={bs.id}
                     onClick={() => setSelectedBand(bs.id)}
-                    className={`flex-1 p-2 border text-xs text-center transition-all ${
+                    className={`p-2 border text-xs text-center transition-all cursor-pointer ${
                       selectedBand === bs.id
                         ? 'border-[#C99A54] bg-[#F8F2E9] ring-1 ring-[#C99A54] text-[#170C06] font-medium'
                         : 'border-[#C99A54]/25 hover:border-[#C99A54]/60 text-[#71665C]'
@@ -332,17 +332,17 @@ export const InteractiveRingStudio: React.FC = () => {
 
               <button
                 onClick={handleSaveToWishlist}
-                className="w-full py-3.5 px-4 bg-[#170C06] hover:bg-[#28160D] text-[#E7C58A] text-xs tracking-[0.25em] uppercase font-semibold flex items-center justify-center space-x-2 transition-all shadow-md cursor-pointer"
+                className="w-full py-3.5 px-4 bg-[#170C06] hover:bg-[#28160D] text-[#E7C58A] text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase font-semibold flex items-center justify-center space-x-2 transition-all shadow-md cursor-pointer"
               >
                 {savedSuccess ? (
                   <>
-                    <Check className="w-4 h-4 text-[#C99A54]" />
-                    <span>BESPOKE DESIGN SAVED TO WISHLIST</span>
+                    <Check className="w-4 h-4 text-[#C99A54] shrink-0" />
+                    <span className="truncate">BESPOKE DESIGN SAVED TO WISHLIST</span>
                   </>
                 ) : (
                   <>
-                    <Heart className="w-4 h-4" />
-                    <span>SAVE BESPOKE DESIGN TO WISHLIST</span>
+                    <Heart className="w-4 h-4 shrink-0" />
+                    <span className="truncate">SAVE BESPOKE DESIGN TO WISHLIST</span>
                   </>
                 )}
               </button>

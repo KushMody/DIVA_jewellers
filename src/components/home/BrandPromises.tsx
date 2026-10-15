@@ -39,7 +39,7 @@ export const BrandPromises: React.FC = () => {
   };
 
   return (
-    <section className="bg-[#170C06] border-y border-[#C99A54]/20 py-10 md:py-12 px-6 md:px-12 text-[#F8F2E9]">
+    <section className="bg-[#170C06] border-y border-[#C99A54]/20 py-10 md:py-12 px-4 sm:px-6 md:px-12 text-[#F8F2E9]">
       <div className="max-w-[1536px] mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-[#C99A54]/25">
           {BRAND_PROMISES.map((promise, idx) => (

@@ -44,7 +44,7 @@ const REVIEWS: ReviewStory[] = [
     date: 'January 2026',
     ringName: 'Custom Bespoke Signet Solitaire',
     ringSlug: 'custom-design-ring',
-    image: '/images/categories/custom-design.webp',
+    image: '/images/products/custom-design-ring.webp',
     serialNumber: 11,
     quote: 'The CAD prototyping and 40x microscope setting tolerances rival the finest Geneva watchmakers.',
     fullStory: 'I approached the atelier with an heirloom drawing. The master goldsmiths translated my sketches into a solid 18K rose gold masterpiece with zero compromise. The hidden under-gallery halo was a breathtaking touch.',

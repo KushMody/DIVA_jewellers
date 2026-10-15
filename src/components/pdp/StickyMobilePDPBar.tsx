@@ -43,7 +43,7 @@ export const StickyMobilePDPBar: React.FC<StickyMobilePDPBarProps> = ({ product 
   };
 
   return (
-    <div className="md:hidden fixed bottom-14 left-0 right-0 z-40 bg-[#170C06]/95 backdrop-blur-md border-t border-[#C99A54]/30 px-4 py-2.5 shadow-2xl flex items-center justify-between animate-fadeIn">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#170C06]/98 backdrop-blur-md border-t border-[#C99A54]/30 px-4 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))] shadow-2xl flex items-center justify-between animate-fadeIn">
       <div className="flex flex-col max-w-[50%]">
         <span className="text-[10px] text-[#C99A54] uppercase tracking-wider font-mono truncate">
           {product.name}

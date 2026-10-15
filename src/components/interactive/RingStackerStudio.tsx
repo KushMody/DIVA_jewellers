@@ -167,20 +167,20 @@ export const RingStackerStudio: React.FC = () => {
         {/* Studio Workspace Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Canvas: Live Stacked Finger Visualizer */}
-          <div className="lg:col-span-6 bg-[#201007] border border-[#C99A54]/30 p-6 sm:p-10 rounded-xs flex flex-col items-center justify-between min-h-[520px] relative overflow-hidden shadow-2xl">
+          <div className="lg:col-span-6 bg-[#201007] border border-[#C99A54]/30 p-4 sm:p-6 md:p-10 rounded-xs flex flex-col items-center justify-between min-h-[460px] sm:min-h-[520px] relative overflow-hidden shadow-2xl">
             {/* Top Toolbar */}
-            <div className="w-full flex justify-between items-center pb-4 border-b border-[#C99A54]/20 text-xs">
-              <span className="font-mono text-[#E7C58A] uppercase tracking-wider text-[11px]">
+            <div className="w-full flex justify-between items-center pb-3 sm:pb-4 border-b border-[#C99A54]/20 text-xs">
+              <span className="font-mono text-[#E7C58A] uppercase tracking-wider text-[10px] sm:text-[11px]">
                 {activeStack.length} PIECES STACKED
               </span>
-              <div className="flex space-x-2">
+              <div className="flex space-x-1.5 sm:space-x-2">
                 {METALS.map((m) => (
                   <button
                     key={m.id}
                     onClick={() => {
                       setSelectedMetal(m);
                     }}
-                    className={`w-5 h-5 rounded-full border transition-all cursor-pointer ${
+                    className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full border transition-all cursor-pointer ${
                       selectedMetal.id === m.id ? 'ring-2 ring-[#E7C58A] scale-110' : 'opacity-70 hover:opacity-100'
                     }`}
                     style={{ backgroundColor: m.colorHex }}
@@ -191,12 +191,12 @@ export const RingStackerStudio: React.FC = () => {
             </div>
 
             {/* Finger Silhouette with Layered Rings */}
-            <div className="relative w-64 h-80 flex flex-col items-center justify-center my-6">
+            <div className="relative w-60 sm:w-64 h-72 sm:h-80 flex flex-col items-center justify-center my-4 sm:my-6">
               {/* Hand/Finger Column */}
-              <div className="w-24 h-72 bg-gradient-to-t from-[#2a1b12] to-[#3a271c] rounded-t-full border border-[#C99A54]/30 relative flex flex-col items-center justify-center shadow-2xl">
+              <div className="w-20 sm:w-24 h-64 sm:h-72 bg-gradient-to-t from-[#2a1b12] to-[#3a271c] rounded-t-full border border-[#C99A54]/30 relative flex flex-col items-center justify-center shadow-2xl">
                 {/* Finger Knuckle details */}
-                <div className="w-16 h-[1px] bg-white/10 absolute top-20" />
-                <div className="w-16 h-[1px] bg-white/10 absolute bottom-16" />
+                <div className="w-14 sm:w-16 h-[1px] bg-white/10 absolute top-20" />
+                <div className="w-14 sm:w-16 h-[1px] bg-white/10 absolute bottom-16" />
 
                 {/* Layer 1: Crown Tiara (Top) */}
                 <AnimatePresence>
@@ -206,15 +206,15 @@ export const RingStackerStudio: React.FC = () => {
                       initial={{ opacity: 0, y: -20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.8 }}
-                      className="w-28 h-7 z-30 mb-0.5 rounded-sm flex items-center justify-center relative cursor-pointer group"
+                      className="w-26 sm:w-28 h-6 sm:h-7 z-30 mb-0.5 rounded-sm flex items-center justify-center relative cursor-pointer group"
                       style={{
                         backgroundColor: `${selectedMetal.colorHex}dd`,
                         boxShadow: `0 0 12px ${selectedMetal.colorHex}66`,
                       }}
                       title={selectedCrown.name}
                     >
-                      <div className="w-3 h-3 rotate-45 bg-white border border-[#C99A54] -mt-3 shadow-md" />
-                      <span className="opacity-0 group-hover:opacity-100 absolute -right-28 text-[9px] bg-black/80 px-2 py-1 text-[#E7C58A] whitespace-nowrap transition-opacity">
+                      <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rotate-45 bg-white border border-[#C99A54] -mt-3 shadow-md" />
+                      <span className="opacity-0 group-hover:opacity-100 pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 text-[9px] bg-black/90 px-2 py-0.5 text-[#E7C58A] whitespace-nowrap transition-opacity rounded-2xs border border-[#C99A54]/30 z-40">
                         {selectedCrown.name}
                       </span>
                     </motion.div>
@@ -225,17 +225,17 @@ export const RingStackerStudio: React.FC = () => {
                 <motion.div
                   key={selectedCenter.id}
                   layout
-                  className="w-30 h-9 z-20 my-0.5 rounded-sm flex items-center justify-center relative cursor-pointer group shadow-xl"
+                  className="w-28 sm:w-30 h-8 sm:h-9 z-20 my-0.5 rounded-sm flex items-center justify-center relative cursor-pointer group shadow-xl"
                   style={{
                     backgroundColor: selectedMetal.colorHex,
                     boxShadow: `0 0 16px ${selectedMetal.colorHex}88`,
                   }}
                 >
                   {/* Solitaire Stone */}
-                  <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-white via-[#EBF3F9] to-white border border-[#C99A54] -mt-8 flex items-center justify-center shadow-[0_0_20px_white]">
-                    <Sparkles className="w-3.5 h-3.5 text-[#C99A54]" />
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-tr from-white via-[#EBF3F9] to-white border border-[#C99A54] -mt-8 flex items-center justify-center shadow-[0_0_20px_white]">
+                    <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#C99A54]" />
                   </div>
-                  <span className="opacity-0 group-hover:opacity-100 absolute -right-28 text-[9px] bg-black/80 px-2 py-1 text-[#E7C58A] whitespace-nowrap transition-opacity">
+                  <span className="opacity-0 group-hover:opacity-100 pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 text-[9px] bg-black/90 px-2 py-0.5 text-[#E7C58A] whitespace-nowrap transition-opacity rounded-2xs border border-[#C99A54]/30 z-40">
                     {selectedCenter.name}
                   </span>
                 </motion.div>
@@ -248,7 +248,7 @@ export const RingStackerStudio: React.FC = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.8 }}
-                      className="w-28 h-6 z-10 mt-0.5 rounded-sm flex items-center justify-center relative cursor-pointer group"
+                      className="w-26 sm:w-28 h-5 sm:h-6 z-10 mt-0.5 rounded-sm flex items-center justify-center relative cursor-pointer group"
                       style={{
                         backgroundColor: `${selectedMetal.colorHex}ee`,
                         boxShadow: `0 0 10px ${selectedMetal.colorHex}55`,
@@ -260,7 +260,7 @@ export const RingStackerStudio: React.FC = () => {
                         <span className="w-1.5 h-1.5 rounded-full bg-white shadow-xs" />
                         <span className="w-1.5 h-1.5 rounded-full bg-white shadow-xs" />
                       </div>
-                      <span className="opacity-0 group-hover:opacity-100 absolute -right-28 text-[9px] bg-black/80 px-2 py-1 text-[#E7C58A] whitespace-nowrap transition-opacity">
+                      <span className="opacity-0 group-hover:opacity-100 pointer-events-none absolute -bottom-7 left-1/2 -translate-x-1/2 text-[9px] bg-black/90 px-2 py-0.5 text-[#E7C58A] whitespace-nowrap transition-opacity rounded-2xs border border-[#C99A54]/30 z-40">
                         {selectedBand.name}
                       </span>
                     </motion.div>
@@ -408,17 +408,17 @@ export const RingStackerStudio: React.FC = () => {
             <div className="pt-4">
               <button
                 onClick={handleAddStackToBag}
-                className="w-full py-4 bg-[#C99A54] hover:bg-[#E7C58A] text-[#170C06] font-semibold text-xs tracking-[0.25em] uppercase flex items-center justify-center space-x-3 transition-colors shadow-2xl cursor-pointer"
+                className="w-full py-3.5 sm:py-4 px-3 bg-[#C99A54] hover:bg-[#E7C58A] text-[#170C06] font-semibold text-[11px] sm:text-xs tracking-[0.15em] sm:tracking-[0.25em] uppercase flex items-center justify-center space-x-2 sm:space-x-3 transition-colors shadow-2xl cursor-pointer"
               >
                 {stackAddedSuccess ? (
                   <>
-                    <Check className="w-4 h-4 text-[#170C06]" />
-                    <span>ENTIRE STACK ADDED TO VAULT BAG</span>
+                    <Check className="w-4 h-4 text-[#170C06] shrink-0" />
+                    <span className="truncate">ENTIRE STACK ADDED TO VAULT BAG</span>
                   </>
                 ) : (
                   <>
-                    <ShoppingBag className="w-4 h-4" />
-                    <span>ADD COMPLETE {activeStack.length}-PIECE STACK TO BAG (₹{totalPrice.toLocaleString('en-IN')})</span>
+                    <ShoppingBag className="w-4 h-4 shrink-0" />
+                    <span className="truncate">ADD {activeStack.length}-PIECE STACK • ₹{totalPrice.toLocaleString('en-IN')}</span>
                   </>
                 )}
               </button>

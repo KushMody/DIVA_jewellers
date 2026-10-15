@@ -13,8 +13,8 @@ export const WishlistPage: React.FC = () => {
   }, []);
 
   return (
-    <main className="bg-[#F8F2E9] min-h-screen pt-24 md:pt-28 pb-24 text-[#18130F]">
-      <div className="max-w-[1536px] mx-auto px-6 md:px-12">
+    <main className="bg-[#F8F2E9] min-h-screen pt-24 sm:pt-28 md:pt-32 pb-24 text-[#18130F]">
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-6 md:px-12">
         {/* Breadcrumb */}
         <nav
           aria-label="Breadcrumb"

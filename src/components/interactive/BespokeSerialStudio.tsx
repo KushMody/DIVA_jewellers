@@ -152,21 +152,21 @@ export const BespokeSerialStudio: React.FC<BespokeSerialStudioProps> = ({
                     </svg>
 
                     {/* Dynamic Real-Time Laser Hallmarks rendered right over the inner band */}
-                    <div className="absolute inset-x-8 top-[58%] -translate-y-1/2 flex items-center justify-center space-x-3 sm:space-x-4 text-center px-4 overflow-hidden pointer-events-none">
+                    <div className="absolute inset-x-2 sm:inset-x-8 top-[58%] -translate-y-1/2 flex items-center justify-center space-x-1.5 sm:space-x-3 text-center px-2 sm:px-4 overflow-hidden pointer-events-none">
                       {/* Official BIS & Atelier Stamp */}
-                      <span className="text-[10px] sm:text-[11px] font-mono tracking-widest text-[#E7C58A]/90 border border-[#E7C58A]/40 px-1 py-0.5 rounded-2xs">
+                      <span className="text-[8px] sm:text-[11px] font-mono tracking-widest text-[#E7C58A]/90 border border-[#E7C58A]/40 px-1 py-0.5 rounded-2xs shrink-0">
                         DIVA
                       </span>
-                      <span className="text-[9px] sm:text-[10px] font-mono tracking-wider text-[#C99A54]/80">
+                      <span className="text-[8px] sm:text-[10px] font-mono tracking-wider text-[#C99A54]/80 hidden xs:inline shrink-0">
                         750 AU
                       </span>
                       {/* Limited Edition Serial Number */}
-                      <span className="text-[10px] sm:text-xs font-mono font-bold tracking-wider text-[#FFF2D6] bg-black/40 px-1.5 py-0.5 border-b border-[#C99A54]/50">
-                        N°{formattedSerial}/{TOTAL_CHAPTER_PIECES}
+                      <span className="text-[9px] sm:text-xs font-mono font-bold tracking-wider text-[#FFF2D6] bg-black/40 px-1 sm:px-1.5 py-0.5 border-b border-[#C99A54]/50 shrink-0">
+                        N°{formattedSerial}
                       </span>
                       {/* Customer Custom Engraving Text */}
                       <span
-                        className={`text-xs sm:text-sm tracking-widest text-[#F8F2E9] drop-shadow-sm font-medium italic transition-all truncate max-w-[180px] sm:max-w-[240px] ${
+                        className={`text-[10px] sm:text-sm tracking-widest text-[#F8F2E9] drop-shadow-sm font-medium italic transition-all truncate max-w-[100px] xs:max-w-[140px] sm:max-w-[240px] ${
                           engravingFont === 'serif'
                             ? 'font-serif'
                             : engravingFont === 'script'
@@ -174,7 +174,7 @@ export const BespokeSerialStudio: React.FC<BespokeSerialStudioProps> = ({
                             : 'font-mono'
                         }`}
                       >
-                        "{engravingText || 'YOUR INSCRIPTION'}"
+                        "{engravingText || 'INSCRIPTION'}"
                       </span>
                     </div>
                   </div>
@@ -349,13 +349,13 @@ export const BespokeSerialStudio: React.FC<BespokeSerialStudioProps> = ({
               >
                 {isReservedSuccess ? (
                   <>
-                    <Check className="w-4 h-4 text-[#170C06]" />
-                    <span>EDITION #{formattedSerial} RESERVED IN ATELIER LEDGER</span>
+                    <Check className="w-4 h-4 text-[#170C06] shrink-0" />
+                    <span className="truncate">EDITION #{formattedSerial} RESERVED IN ATELIER LEDGER</span>
                   </>
                 ) : (
                   <>
-                    <Shield className="w-4 h-4" />
-                    <span>CLAIM EDITION #{formattedSerial} WITH CUSTOM INSCRIPTION</span>
+                    <Shield className="w-4 h-4 shrink-0" />
+                    <span className="truncate">CLAIM EDITION #{formattedSerial} <span className="hidden xs:inline">• CUSTOM INSCRIPTION</span></span>
                   </>
                 )}
               </button>

@@ -4,20 +4,7 @@ import { Sparkles, SlidersHorizontal, ArrowLeftRight } from 'lucide-react';
 export const DiamondMetamorphosisSlider: React.FC = () => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
-  const [containerWidth, setContainerWidth] = useState<number>(896);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-    const updateWidth = () => {
-      if (containerRef.current) {
-        setContainerWidth(containerRef.current.clientWidth);
-      }
-    };
-    updateWidth();
-    window.addEventListener('resize', updateWidth);
-    return () => window.removeEventListener('resize', updateWidth);
-  }, []);
 
   const handleMove = useCallback((clientX: number) => {
     if (!containerRef.current) return;
@@ -27,21 +14,32 @@ export const DiamondMetamorphosisSlider: React.FC = () => {
     setSliderPosition(percent);
   }, []);
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    handleMove(e.touches[0].clientX);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
+  // Global pointer move and up listeners so dragging never gets stuck or frozen
+  useEffect(() => {
     if (!isDragging) return;
-    handleMove(e.clientX);
-  };
 
-  const handlePointerDown = () => {
+    const onPointerMove = (e: PointerEvent) => {
+      handleMove(e.clientX);
+    };
+
+    const onPointerUp = () => {
+      setIsDragging(false);
+    };
+
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('pointercancel', onPointerUp);
+
+    return () => {
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', onPointerUp);
+      window.removeEventListener('pointercancel', onPointerUp);
+    };
+  }, [isDragging, handleMove]);
+
+  const handlePointerDown = (e: React.PointerEvent) => {
     setIsDragging(true);
-  };
-
-  const handlePointerUp = () => {
-    setIsDragging(false);
+    handleMove(e.clientX);
   };
 
   return (
@@ -68,38 +66,32 @@ export const DiamondMetamorphosisSlider: React.FC = () => {
         {/* Split Slider Stage */}
         <div className="max-w-4xl mx-auto">
           {/* Quick Preset Buttons */}
-          <div className="flex items-center justify-center space-x-3 sm:space-x-4 mb-6">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-6">
             <button
-              onClick={() => {
-                setSliderPosition(15);
-              }}
-              className={`px-3 py-1.5 text-[10px] tracking-[0.2em] uppercase font-mono border transition-all cursor-pointer ${
+              onClick={() => setSliderPosition(15)}
+              className={`px-2.5 py-1 sm:px-3 sm:py-1.5 text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.2em] uppercase font-mono border transition-all cursor-pointer ${
                 sliderPosition < 30
-                  ? 'bg-[#C99A54] text-[#170C06] border-[#C99A54] font-medium'
+                  ? 'bg-[#C99A54] text-[#170C06] border-[#C99A54] font-medium shadow-[0_0_15px_rgba(201,154,84,0.3)]'
                   : 'bg-[#170C06] text-[#E7C58A] border-[#C99A54]/30 hover:border-[#C99A54]'
               }`}
             >
-              1. ROUGH MATRIX (15%)
+              1. ROUGH (15%)
             </button>
             <button
-              onClick={() => {
-                setSliderPosition(50);
-              }}
-              className={`px-3 py-1.5 text-[10px] tracking-[0.2em] uppercase font-mono border transition-all cursor-pointer ${
+              onClick={() => setSliderPosition(50)}
+              className={`px-2.5 py-1 sm:px-3 sm:py-1.5 text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.2em] uppercase font-mono border transition-all cursor-pointer ${
                 sliderPosition >= 30 && sliderPosition <= 70
-                  ? 'bg-[#C99A54] text-[#170C06] border-[#C99A54] font-medium'
+                  ? 'bg-[#C99A54] text-[#170C06] border-[#C99A54] font-medium shadow-[0_0_15px_rgba(201,154,84,0.3)]'
                   : 'bg-[#170C06] text-[#E7C58A] border-[#C99A54]/30 hover:border-[#C99A54]'
               }`}
             >
-              2. 50/50 METAMORPHOSIS
+              2. 50/50 TRANSFORMATION
             </button>
             <button
-              onClick={() => {
-                setSliderPosition(85);
-              }}
-              className={`px-3 py-1.5 text-[10px] tracking-[0.2em] uppercase font-mono border transition-all cursor-pointer ${
+              onClick={() => setSliderPosition(85)}
+              className={`px-2.5 py-1 sm:px-3 sm:py-1.5 text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.2em] uppercase font-mono border transition-all cursor-pointer ${
                 sliderPosition > 70
-                  ? 'bg-[#C99A54] text-[#170C06] border-[#C99A54] font-medium'
+                  ? 'bg-[#C99A54] text-[#170C06] border-[#C99A54] font-medium shadow-[0_0_15px_rgba(201,154,84,0.3)]'
                   : 'bg-[#170C06] text-[#E7C58A] border-[#C99A54]/30 hover:border-[#C99A54]'
               }`}
             >
@@ -110,87 +102,92 @@ export const DiamondMetamorphosisSlider: React.FC = () => {
           {/* Interactive Split Canvas */}
           <div
             ref={containerRef}
-            onMouseMove={handleMouseMove}
-            onMouseDown={handlePointerDown}
-            onMouseUp={handlePointerUp}
-            onTouchMove={handleTouchMove}
-            onTouchStart={handlePointerDown}
-            onTouchEnd={handlePointerUp}
-            className="relative w-full h-[360px] sm:h-[440px] md:h-[500px] overflow-hidden rounded-xs border border-[#C99A54]/40 select-none cursor-ew-resize shadow-2xl bg-[#0B0402]"
-            data-cursor="inspect"
-            data-cursor-text="DRAG"
+            onPointerDown={handlePointerDown}
+            className="relative w-full h-[320px] sm:h-[420px] md:h-[500px] overflow-hidden rounded-xs border border-[#C99A54]/40 select-none cursor-ew-resize shadow-2xl bg-[#0B0402] touch-none"
           >
             {/* Layer 1 (Underneath): Master Finished Solitaire Ring */}
-            <div className="absolute inset-0 w-full h-full">
+            <div className="absolute inset-0 w-full h-full pointer-events-none">
               <img
                 src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=85"
                 alt="Master 18K Diamond Solitaire"
-                className="w-full h-full object-cover object-center filter contrast-110"
+                className="w-full h-full object-cover object-center filter contrast-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
+            </div>
 
-              {/* Annotation Tag Right */}
-              <div className="absolute bottom-6 right-6 z-10 text-right pointer-events-none">
-                <span className="text-[10px] tracking-[0.3em] font-mono text-[#E7C58A] uppercase block">
-                  STAGE 02 • FINISHED MASTERPIECE
+            {/* Layer 2 (Clipped on top): Authentic Geological Rough Crystal Matrix */}
+            <div
+              className="absolute inset-0 w-full h-full pointer-events-none"
+              style={{
+                clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
+              }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1515526764876-0f3b298ee4ac?auto=format&fit=crop&w=1400&q=85"
+                alt="Rough Geological Diamond Crystal"
+                className="w-full h-full object-cover object-center filter contrast-110 brightness-95"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
+            </div>
+
+            {/* Fixed Corner Label: Stage 01 (Never crushed or vertically wrapped) */}
+            <div
+              className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 z-20 pointer-events-none transition-opacity duration-300"
+              style={{
+                opacity: sliderPosition > 12 ? 1 : 0.35,
+              }}
+            >
+              <div className="bg-[#170C06]/85 backdrop-blur-md border border-[#C99A54]/30 rounded-xs px-2.5 py-1.5 sm:px-3.5 sm:py-2.5 shadow-xl max-w-[150px] sm:max-w-[240px] md:max-w-[270px]">
+                <span className="text-[8px] sm:text-[10px] tracking-[0.2em] font-mono text-[#E7C58A] uppercase block">
+                  STAGE 01
                 </span>
-                <span className="font-serif text-lg sm:text-xl text-[#F8F2E9]">
-                  18K Yellow Gold Solitaire
+                <span className="font-serif text-xs sm:text-base md:text-lg text-[#F8F2E9] font-normal leading-tight block mt-0.5 truncate">
+                  Rough Kimberlite
                 </span>
-                <p className="text-[11px] font-mono text-[#71665C]">
-                  57 Facets Hand-Polished • BIS 750
+                <p className="text-[9px] sm:text-[11px] font-mono text-[#71665C] mt-0.5 leading-tight hidden xs:block truncate">
+                  Unfaceted Carbon • Kimberley
                 </p>
               </div>
             </div>
 
-            {/* Layer 2 (Clipped on top): Rough Geological Matrix */}
+            {/* Fixed Corner Label: Stage 02 (Never overlapped or cut off) */}
             <div
-              className="absolute inset-0 w-full h-full overflow-hidden"
-              style={{ width: `${sliderPosition}%` }}
+              className="absolute bottom-3 sm:bottom-6 right-3 sm:right-6 z-20 pointer-events-none text-right transition-opacity duration-300"
+              style={{
+                opacity: sliderPosition < 88 ? 1 : 0.35,
+              }}
             >
-              <img
-                src="https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=1400&q=85"
-                alt="Rough Geological Diamond Matrix"
-                className="absolute inset-0 w-full h-full object-cover object-center filter saturate-50 sepia-25"
-                style={{
-                  width: `${containerWidth}px`,
-                  maxWidth: 'none',
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 pointer-events-none" />
-
-              {/* Annotation Tag Left */}
-              <div className="absolute bottom-6 left-6 z-10 text-left pointer-events-none">
-                <span className="text-[10px] tracking-[0.3em] font-mono text-[#E7C58A] uppercase block">
-                  STAGE 01 • GEOLOGICAL CRADLE
+              <div className="bg-[#170C06]/85 backdrop-blur-md border border-[#C99A54]/30 rounded-xs px-2.5 py-1.5 sm:px-3.5 sm:py-2.5 shadow-xl max-w-[150px] sm:max-w-[240px] md:max-w-[270px] ml-auto">
+                <span className="text-[8px] sm:text-[10px] tracking-[0.2em] font-mono text-[#E7C58A] uppercase block">
+                  STAGE 02
                 </span>
-                <span className="font-serif text-lg sm:text-xl text-[#F8F2E9]">
-                  Rough Kimberlite Crystal
+                <span className="font-serif text-xs sm:text-base md:text-lg text-[#F8F2E9] font-normal leading-tight block mt-0.5 truncate">
+                  18K Solitaire
                 </span>
-                <p className="text-[11px] font-mono text-[#71665C]">
-                  Unfaceted Carbon • Kimberly Certified
+                <p className="text-[9px] sm:text-[11px] font-mono text-[#71665C] mt-0.5 leading-tight hidden xs:block truncate">
+                  57 Facets • BIS 750
                 </p>
               </div>
             </div>
 
             {/* Draggable Divider Handle Line */}
             <div
-              className="absolute top-0 bottom-0 z-30 pointer-events-none"
+              className="absolute top-0 bottom-0 z-30 pointer-events-none select-none"
               style={{ left: `${sliderPosition}%` }}
             >
               {/* Hairline Golden Bar */}
               <div className="w-[2px] h-full bg-[#E7C58A] shadow-[0_0_12px_#E7C58A]" />
 
               {/* Center Drag Medallion */}
-              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-[#170C06] border-2 border-[#E7C58A] shadow-[0_0_20px_rgba(201,154,84,0.6)] flex items-center justify-center text-[#E7C58A]">
-                <ArrowLeftRight className="w-4 h-4 animate-pulse" />
+              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#170C06] border-2 border-[#E7C58A] shadow-[0_0_20px_rgba(201,154,84,0.7)] flex items-center justify-center text-[#E7C58A]">
+                <ArrowLeftRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               </div>
             </div>
 
             {/* Instruction pill at top */}
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 px-3 py-1 bg-black/70 border border-[#C99A54]/30 rounded-full text-[9px] font-mono tracking-widest text-[#E7C58A] uppercase backdrop-blur-xs pointer-events-none flex items-center space-x-1.5">
-              <SlidersHorizontal className="w-3 h-3 text-[#C99A54]" />
-              <span>DRAG OR TAP TO COMPARE STAGES</span>
+            <div className="absolute top-3 sm:top-4 left-1/2 -translate-x-1/2 z-20 px-2.5 py-0.5 sm:px-3 sm:py-1 bg-black/75 border border-[#C99A54]/30 rounded-full text-[8px] sm:text-[9px] font-mono tracking-widest text-[#E7C58A] uppercase backdrop-blur-xs pointer-events-none flex items-center space-x-1 sm:space-x-1.5 shadow-lg max-w-[90%] truncate">
+              <SlidersHorizontal className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#C99A54] shrink-0" />
+              <span className="truncate">DRAG OR TAP TO COMPARE</span>
             </div>
           </div>
 
@@ -210,3 +207,4 @@ export const DiamondMetamorphosisSlider: React.FC = () => {
     </section>
   );
 };
+

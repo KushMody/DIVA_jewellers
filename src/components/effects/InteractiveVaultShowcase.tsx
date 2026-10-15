@@ -163,12 +163,14 @@ export const InteractiveVaultShowcase: React.FC = () => {
         </div>
       </div>
 
-      {/* Quick View Modal */}
-      <QuickViewModal
-        product={selectedProduct}
-        isOpen={Boolean(selectedProduct)}
-        onClose={() => setSelectedProduct(null)}
-      />
+      {/* Quick View Modal (Mounted conditionally) */}
+      {selectedProduct && (
+        <QuickViewModal
+          product={selectedProduct}
+          isOpen={Boolean(selectedProduct)}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
     </section>
   );
 };

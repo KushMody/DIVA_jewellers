@@ -120,9 +120,9 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-[11px] text-[#71665C]">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-[10px] sm:text-[11px] text-[#71665C] text-center md:text-left gap-4">
           <p>© 2026 DIVA JEWELLERS PRIVATE LIMITED. ALL RIGHTS RESERVED.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
+          <div className="flex flex-wrap justify-center md:justify-end gap-x-5 gap-y-1.5">
             <span className="hover:text-[#E7C58A] cursor-pointer transition-colors">PRIVACY POLICY</span>
             <span className="hover:text-[#E7C58A] cursor-pointer transition-colors">TERMS OF SERVICE</span>
             <span className="hover:text-[#E7C58A] cursor-pointer transition-colors">HALLMARKING STANDARDS</span>

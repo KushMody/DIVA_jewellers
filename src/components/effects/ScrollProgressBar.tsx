@@ -4,12 +4,21 @@ export const ScrollProgressBar: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalScroll <= 0) return;
-      const currentScroll = window.scrollY;
-      const progress = Math.min(100, Math.max(0, (currentScroll / totalScroll) * 100));
-      setScrollProgress(progress);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+          if (totalScroll > 0) {
+            const currentScroll = window.scrollY;
+            const progress = Math.min(100, Math.max(0, (currentScroll / totalScroll) * 100));
+            setScrollProgress(progress);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });

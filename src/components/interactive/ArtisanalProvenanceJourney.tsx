@@ -22,7 +22,7 @@ const CHAPTERS: ProvenanceChapter[] = [
     headline: 'Conflict-Free Rough Diamond Selection',
     description: 'Every diamond starts at the world center of diamond manufacturing in Surat. Only the top 1% of rough octahedral crystals with pristine natural lattice purity and zero strain are selected under 40x stereoscopic gemological microscopes.',
     specifications: ['100% Kimberley Process Compliant', 'Ethical Provenance Tracking', 'Natural Geological Formation (>1 Billion Years)'],
-    image: '/images/categories/engagement-rings.webp',
+    image: '/images/products/classic-solitaire.webp',
     tag: 'ORIGIN & INTEGRITY',
   },
   {
@@ -55,7 +55,7 @@ const CHAPTERS: ProvenanceChapter[] = [
     headline: 'Numbered Keepsake Coin & Sealed Vault Box',
     description: 'Every piece is nestled inside a solid walnut presentation box accompanied by its matching serialized brass keepsake coin, physical gemological certificate, and individual salon ledger documentation, delivered with tamper-proof armored logistics.',
     specifications: ['Numbered Commemorative Chapter Coin', 'Hardbound Provenance Certificate', '100% Insured Armored Doorstep Delivery'],
-    image: '/images/categories/custom-design.webp',
+    image: '/images/products/custom-design-ring.webp',
     tag: 'LIFETIME HEIRLOOM',
   },
 ];
@@ -63,17 +63,33 @@ const CHAPTERS: ProvenanceChapter[] = [
 export const ArtisanalProvenanceJourney: React.FC = () => {
   const [activeChapterIndex, setActiveChapterIndex] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [isInView, setIsInView] = useState<boolean>(false);
+  const sectionRef = React.useRef<HTMLElement>(null);
 
   const currentChapter = CHAPTERS[activeChapterIndex];
 
-  // Auto-advance chapters
+  // Pause off-screen intervals using IntersectionObserver
   useEffect(() => {
-    if (!isPlaying) return;
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { rootMargin: '100px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto-advance chapters only when playing and in view
+  useEffect(() => {
+    if (!isPlaying || !isInView) return;
     const timer = setInterval(() => {
       setActiveChapterIndex((prev) => (prev + 1) % CHAPTERS.length);
     }, 6500);
     return () => clearInterval(timer);
-  }, [isPlaying]);
+  }, [isPlaying, isInView]);
 
   const selectChapter = (idx: number) => {
     setActiveChapterIndex(idx);
@@ -81,7 +97,7 @@ export const ArtisanalProvenanceJourney: React.FC = () => {
   };
 
   return (
-    <section className="bg-[#170C06] text-[#F8F2E9] py-16 md:py-24 px-4 sm:px-6 md:px-12 border-b border-[#C99A54]/25 relative overflow-hidden">
+    <section ref={sectionRef} className="bg-[#170C06] text-[#F8F2E9] py-16 md:py-24 px-4 sm:px-6 md:px-12 border-b border-[#C99A54]/25 relative overflow-hidden">
       {/* Background Subtle Map Grid */}
       <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#C99A54_1px,transparent_1px)] [background-size:24px_24px]" />
 

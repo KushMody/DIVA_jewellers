@@ -14,7 +14,7 @@ export const CATEGORIES_DATA: CategoryCardData[] = [
     slug: 'engagement-rings',
     title: 'ENGAGEMENT RINGS',
     subtitle: 'A PROMISE FOREVER',
-    image: '/images/categories/engagement-rings.webp',
+    image: '/images/products/classic-solitaire.webp',
     link: '/collections/engagement-rings',
   },
   {
@@ -22,7 +22,7 @@ export const CATEGORIES_DATA: CategoryCardData[] = [
     slug: 'wedding-bands',
     title: 'WEDDING BANDS',
     subtitle: 'TOGETHER ALWAYS',
-    image: '/images/categories/wedding-bands.webp',
+    image: '/images/products/diamond-wedding-band.webp',
     link: '/collections/wedding-bands',
   },
   {
@@ -30,7 +30,7 @@ export const CATEGORIES_DATA: CategoryCardData[] = [
     slug: 'fashion-rings',
     title: 'FASHION RINGS',
     subtitle: 'EXPRESS YOUR STYLE',
-    image: '/images/categories/fashion-rings.webp',
+    image: '/images/products/regal-emerald.webp',
     link: '/collections/fashion-rings',
   },
   {
@@ -38,7 +38,7 @@ export const CATEGORIES_DATA: CategoryCardData[] = [
     slug: 'custom-design',
     title: 'CUSTOM DESIGN',
     subtitle: 'BRING YOUR VISION TO LIFE',
-    image: '/images/categories/custom-design.webp',
+    image: '/images/products/custom-design-ring.webp',
     link: '/collections/custom-design',
   },
 ];
@@ -513,7 +513,7 @@ export const PRODUCTS: Product[] = [
     mainImage: '/images/products/custom-design-ring.webp',
     gallery: [
       '/images/products/custom-design-ring.webp',
-      '/images/categories/custom-design.webp',
+      '/images/products/vintage-royal-ring.webp',
       '/images/products/classic-solitaire.webp',
     ],
     metalOptions: METAL_OPTIONS,
@@ -530,7 +530,7 @@ export const PRODUCTS: Product[] = [
       {
         title: 'HAND DRAFTED BLUEPRINT',
         subtitle: 'Each design drawn by master artists.',
-        image: '/images/categories/custom-design.webp',
+        image: '/images/products/custom-design-ring.webp',
       },
       {
         title: 'LIFETIME HEIRLOOM',

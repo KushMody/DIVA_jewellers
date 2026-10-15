@@ -115,26 +115,26 @@ export const Gemological4CExplorer: React.FC = () => {
         </div>
 
         {/* 4C Tabs Navigation */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 mb-8 sm:mb-10">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => {
                 setActiveTab(tab.id);
               }}
-              className={`p-4 border text-left transition-all duration-300 relative rounded-xs cursor-pointer ${
+              className={`p-2.5 sm:p-4 border text-left transition-all duration-300 relative rounded-xs cursor-pointer ${
                 activeTab === tab.id
                   ? 'bg-[#28160D] border-[#E7C58A] shadow-xl'
                   : 'bg-[#170C06]/60 border-[#C99A54]/25 hover:border-[#C99A54]/60 opacity-80 hover:opacity-100'
               }`}
             >
-              <div className="flex items-center space-x-2 text-[#E7C58A] mb-1">
+              <div className="flex items-center space-x-1.5 sm:space-x-2 text-[#E7C58A] mb-0.5 sm:mb-1">
                 {tab.icon}
-                <span className="text-xs font-semibold tracking-wider uppercase font-mono">
+                <span className="text-[10px] sm:text-xs font-semibold tracking-wider uppercase font-mono truncate">
                   {tab.label}
                 </span>
               </div>
-              <span className="text-[11px] text-[#71665C] block font-light">
+              <span className="text-[9px] sm:text-[11px] text-[#71665C] block font-light truncate">
                 {tab.subtitle}
               </span>
               {activeTab === tab.id && (
@@ -154,35 +154,35 @@ export const Gemological4CExplorer: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#170C06] border border-[#C99A54]/30 p-6 sm:p-10"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center bg-[#170C06] border border-[#C99A54]/30 p-4 sm:p-6 md:p-10"
           >
             {/* Visual Scale Display */}
-            <div className="lg:col-span-7 flex flex-col items-center justify-center p-6 bg-[#201007] border border-[#C99A54]/20 rounded-xs min-h-[360px] relative overflow-hidden">
-              <span className="absolute top-4 left-4 text-[10px] uppercase tracking-widest text-[#E7C58A] font-mono">
+            <div className="lg:col-span-7 flex flex-col items-center justify-center p-4 sm:p-6 bg-[#201007] border border-[#C99A54]/20 rounded-xs min-h-[300px] sm:min-h-[360px] relative overflow-hidden">
+              <span className="absolute top-3 left-3 sm:top-4 sm:left-4 text-[9px] sm:text-[10px] uppercase tracking-widest text-[#E7C58A] font-mono">
                 1:1 LIFE-SIZE FINGER & COIN COMPARISON
               </span>
 
               {/* Hand/Finger Context Outline */}
-              <div className="relative w-full max-w-md h-64 flex items-center justify-around">
+              <div className="relative w-full max-w-md h-52 sm:h-64 flex items-center justify-around mt-4">
                 {/* Reference 1 Rupee / 1 Dollar Coin (24mm) */}
-                <div className="flex flex-col items-center space-y-2 opacity-50">
-                  <div className="w-24 h-24 rounded-full border border-dashed border-[#C99A54] flex items-center justify-center text-[10px] font-mono text-[#E7C58A]">
+                <div className="flex flex-col items-center space-y-1.5 sm:space-y-2 opacity-50">
+                  <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full border border-dashed border-[#C99A54] flex items-center justify-center text-[8px] sm:text-[10px] font-mono text-[#E7C58A]">
                     24 mm Coin
                   </div>
-                  <span className="text-[10px] text-[#71665C]">Standard Coin</span>
+                  <span className="text-[9px] sm:text-[10px] text-[#71665C]">Standard Coin</span>
                 </div>
 
                 {/* Finger Silhouette with Dynamic Diamond Solitaire */}
-                <div className="flex flex-col items-center space-y-3">
-                  <div className="w-20 h-44 bg-gradient-to-t from-[#2a1b12] to-[#3a271c] rounded-t-full border border-[#C99A54]/30 relative flex items-center justify-center shadow-inner">
+                <div className="flex flex-col items-center space-y-2 sm:space-y-3">
+                  <div className="w-14 sm:w-20 h-36 sm:h-44 bg-gradient-to-t from-[#2a1b12] to-[#3a271c] rounded-t-full border border-[#C99A54]/30 relative flex items-center justify-center shadow-inner">
                     {/* Ring Band */}
-                    <div className="w-24 h-5 border-y-2 border-[#E7C58A] bg-[#C99A54]/40 absolute rounded-sm shadow-md" />
+                    <div className="w-18 sm:w-24 h-4 sm:h-5 border-y-2 border-[#E7C58A] bg-[#C99A54]/40 absolute rounded-sm shadow-md" />
 
                     {/* Dynamic Diamond Solitaire Sized Proportionally */}
                     <motion.div
                       style={{
-                        width: `${parseFloat(diameterMm) * 6}px`,
-                        height: `${parseFloat(diameterMm) * 6}px`,
+                        width: `${Math.min(parseFloat(diameterMm) * 6, 68)}px`,
+                        height: `${Math.min(parseFloat(diameterMm) * 6, 68)}px`,
                       }}
                       className="rounded-full bg-gradient-to-tr from-[#FFFDF9] via-[#EAF4FC] to-[#FFFFFF] shadow-[0_0_25px_rgba(255,255,255,0.8)] border border-white z-10 flex items-center justify-center relative cursor-pointer"
                       whileHover={{ scale: 1.15 }}
@@ -190,45 +190,45 @@ export const Gemological4CExplorer: React.FC = () => {
                       <div className="w-2/3 h-2/3 border border-[#C99A54]/40 rotate-45" />
                     </motion.div>
                   </div>
-                  <span className="text-[11px] text-[#E7C58A] font-mono">
+                  <span className="text-[10px] sm:text-[11px] text-[#E7C58A] font-mono">
                     {caratWeight.toFixed(2)} Carat on Finger
                   </span>
                 </div>
               </div>
 
               {/* Metric Readout Pills */}
-              <div className="grid grid-cols-3 gap-3 w-full mt-6 pt-4 border-t border-[#C99A54]/20 text-center">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 w-full mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-[#C99A54]/20 text-center">
                 <div>
-                  <span className="text-[10px] text-[#71665C] uppercase block">Diameter</span>
-                  <span className="font-mono text-base text-[#E7C58A] font-semibold">{diameterMm} mm</span>
+                  <span className="text-[9px] sm:text-[10px] text-[#71665C] uppercase block">Diameter</span>
+                  <span className="font-mono text-xs sm:text-base text-[#E7C58A] font-semibold">{diameterMm} mm</span>
                 </div>
                 <div>
-                  <span className="text-[10px] text-[#71665C] uppercase block">Crown Area</span>
-                  <span className="font-mono text-base text-[#E7C58A] font-semibold">{surfaceAreaMm2} mm²</span>
+                  <span className="text-[9px] sm:text-[10px] text-[#71665C] uppercase block">Crown Area</span>
+                  <span className="font-mono text-xs sm:text-base text-[#E7C58A] font-semibold">{surfaceAreaMm2} mm²</span>
                 </div>
                 <div>
-                  <span className="text-[10px] text-[#71665C] uppercase block">Total Weight</span>
-                  <span className="font-mono text-base text-[#E7C58A] font-semibold">{(caratWeight * 0.2).toFixed(2)} grams</span>
+                  <span className="text-[9px] sm:text-[10px] text-[#71665C] uppercase block">Total Weight</span>
+                  <span className="font-mono text-xs sm:text-base text-[#E7C58A] font-semibold">{(caratWeight * 0.2).toFixed(2)} g</span>
                 </div>
               </div>
             </div>
 
             {/* Interactive Carat Controls */}
-            <div className="lg:col-span-5 space-y-6">
+            <div className="lg:col-span-5 space-y-4 sm:space-y-6 text-left">
               <div>
-                <span className="text-[10px] uppercase tracking-[0.25em] text-[#C99A54] block font-mono">
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-[#C99A54] block font-mono">
                   METRIC WEIGHT SCALE
                 </span>
-                <h3 className="font-serif text-2xl text-[#F8F2E9]">
+                <h3 className="font-serif text-xl sm:text-2xl text-[#F8F2E9]">
                   {caratWeight.toFixed(2)} Carat Solitaire
                 </h3>
-                <p className="text-xs text-[#71665C] leading-relaxed mt-2">
+                <p className="text-xs text-[#71665C] leading-relaxed mt-1 sm:mt-2">
                   1 Carat equals exactly 200 milligrams (0.2 grams). Because diamond crystals grow exponentially rarer in nature as mass increases, price scales non-linearly with carat weight.
                 </p>
               </div>
 
               {/* Carat Slider */}
-              <div className="space-y-3 bg-[#201007] p-4 border border-[#C99A54]/25 rounded-xs">
+              <div className="space-y-2.5 sm:space-y-3 bg-[#201007] p-3 sm:p-4 border border-[#C99A54]/25 rounded-xs">
                 <div className="flex justify-between items-center text-xs">
                   <span className="text-[#71665C]">Slide to Adjust Carat:</span>
                   <span className="font-mono text-[#E7C58A] font-semibold">{caratWeight.toFixed(2)} ct</span>
@@ -242,7 +242,7 @@ export const Gemological4CExplorer: React.FC = () => {
                   onChange={(e) => setCaratWeight(parseFloat(e.target.value))}
                   className="w-full accent-[#C99A54] cursor-pointer"
                 />
-                <div className="flex justify-between text-[10px] text-[#71665C] font-mono">
+                <div className="flex justify-between text-[9px] sm:text-[10px] text-[#71665C] font-mono">
                   <span>0.50 ct (Dainty)</span>
                   <span>1.50 ct (Classic)</span>
                   <span>3.50 ct (Statement)</span>
@@ -250,14 +250,14 @@ export const Gemological4CExplorer: React.FC = () => {
               </div>
 
               {/* Quick Preset Buttons */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {[0.75, 1.0, 1.5, 2.0, 2.5, 3.0].map((val) => (
                   <button
                     key={val}
                     onClick={() => {
                       setCaratWeight(val);
                     }}
-                    className={`px-3 py-1.5 text-xs font-mono border transition-all rounded-2xs cursor-pointer ${
+                    className={`px-2.5 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-mono border transition-all rounded-2xs cursor-pointer ${
                       caratWeight === val
                         ? 'bg-[#C99A54] text-[#170C06] border-[#C99A54] font-semibold'
                         : 'border-[#C99A54]/30 text-[#E7C58A] hover:border-[#C99A54]'
@@ -278,16 +278,16 @@ export const Gemological4CExplorer: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#170C06] border border-[#C99A54]/30 p-6 sm:p-10"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center bg-[#170C06] border border-[#C99A54]/30 p-4 sm:p-6 md:p-10"
           >
             {/* Interactive Ray Path Diagram */}
-            <div className="lg:col-span-7 flex flex-col items-center justify-center p-6 bg-[#201007] border border-[#C99A54]/20 rounded-xs min-h-[360px] relative">
-              <span className="absolute top-4 left-4 text-[10px] uppercase tracking-widest text-[#E7C58A] font-mono">
+            <div className="lg:col-span-7 flex flex-col items-center justify-center p-4 sm:p-6 bg-[#201007] border border-[#C99A54]/20 rounded-xs min-h-[300px] sm:min-h-[360px] relative">
+              <span className="absolute top-3 left-3 sm:top-4 sm:left-4 text-[9px] sm:text-[10px] uppercase tracking-widest text-[#E7C58A] font-mono">
                 INTERNAL LIGHT RAY TRACING SIMULATION
               </span>
 
               {/* SVG Optical Cross Section */}
-              <div className="w-full max-w-sm h-64 flex items-center justify-center relative">
+              <div className="w-full max-w-[280px] sm:max-w-sm h-52 sm:h-64 flex items-center justify-center relative mt-3 sm:mt-0">
                 <svg viewBox="0 0 300 220" className="w-full h-full">
                   {/* Diamond Outline */}
                   {cutGrade === 'ideal' && (
@@ -344,27 +344,27 @@ export const Gemological4CExplorer: React.FC = () => {
                 </svg>
 
                 {/* Efficiency Badge */}
-                <div className="absolute bottom-2 right-4 px-3 py-1 bg-black/60 border border-[#C99A54]/40 rounded-full text-[10px] font-mono text-[#E7C58A]">
-                  Light Return: {cutGrade === 'ideal' ? '100% (Maximum Fire)' : cutGrade === 'shallow' ? '42% (Light Leaks Out Bottom)' : '38% (Light Leaks Out Sides)'}
+                <div className="absolute bottom-1 sm:bottom-2 right-2 sm:right-4 px-2.5 py-0.5 sm:px-3 sm:py-1 bg-black/60 border border-[#C99A54]/40 rounded-full text-[8px] sm:text-[10px] font-mono text-[#E7C58A] max-w-[95%] truncate">
+                  Light Return: {cutGrade === 'ideal' ? '100% (Maximum Fire)' : cutGrade === 'shallow' ? '42% (Leakage)' : '38% (Dark Center)'}
                 </div>
               </div>
             </div>
 
             {/* Cut Selection & Technical Insights */}
-            <div className="lg:col-span-5 space-y-5">
+            <div className="lg:col-span-5 space-y-4 sm:space-y-5 text-left">
               <div>
-                <span className="text-[10px] uppercase tracking-[0.25em] text-[#C99A54] block font-mono">
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-[#C99A54] block font-mono">
                   PROPORTION & FACET ANGLES
                 </span>
-                <h3 className="font-serif text-2xl text-[#F8F2E9]">
+                <h3 className="font-serif text-xl sm:text-2xl text-[#F8F2E9]">
                   {cutGrade === 'ideal' ? 'DIVA Triple Excellent (Tolkowsky)' : cutGrade === 'shallow' ? 'Shallow Cut (Fisheye Effect)' : 'Deep Cut (Nailhead Effect)'}
                 </h3>
-                <p className="text-xs text-[#71665C] leading-relaxed mt-2">
+                <p className="text-xs text-[#71665C] leading-relaxed mt-1 sm:mt-2">
                   Of the 4Cs, **Cut** is the only one dictated by human craftsmanship rather than nature. Precise 57-facet geometry dictates whether a diamond blazes with rainbow scintillation or appears dull and lifeless.
                 </p>
               </div>
 
-              <div className="space-y-2.5">
+              <div className="space-y-2 sm:space-y-2.5">
                 {[
                   { id: 'ideal', label: 'Ideal Hearts & Arrows', subtitle: 'Zero light leakage. Total Internal Reflection.' },
                   { id: 'shallow', label: 'Shallow Spread Cut', subtitle: 'Light leaks out the base. Lacks brilliance.' },
@@ -375,7 +375,7 @@ export const Gemological4CExplorer: React.FC = () => {
                     onClick={() => {
                       setCutGrade(item.id as typeof cutGrade);
                     }}
-                    className={`w-full p-3.5 border text-left transition-all rounded-xs flex items-center justify-between cursor-pointer ${
+                    className={`w-full p-2.5 sm:p-3.5 border text-left transition-all rounded-xs flex items-center justify-between cursor-pointer ${
                       cutGrade === item.id
                         ? 'bg-[#28160D] border-[#E7C58A] shadow-md'
                         : 'bg-[#201007]/60 border-[#C99A54]/25 hover:border-[#C99A54]/50'
@@ -385,7 +385,7 @@ export const Gemological4CExplorer: React.FC = () => {
                       <span className="text-xs font-semibold text-[#F8F2E9] block">{item.label}</span>
                       <span className="text-[10px] text-[#71665C]">{item.subtitle}</span>
                     </div>
-                    {cutGrade === item.id && <Check className="w-4 h-4 text-[#C99A54]" />}
+                    {cutGrade === item.id && <Check className="w-4 h-4 text-[#C99A54] shrink-0" />}
                   </button>
                 ))}
               </div>
@@ -400,37 +400,37 @@ export const Gemological4CExplorer: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#170C06] border border-[#C99A54]/30 p-6 sm:p-10"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center bg-[#170C06] border border-[#C99A54]/30 p-4 sm:p-6 md:p-10"
           >
             {/* Visual Color Gemstone Canvas */}
             <div
-              className={`lg:col-span-7 flex flex-col items-center justify-center p-6 border border-[#C99A54]/20 rounded-xs min-h-[360px] relative transition-colors duration-500 ${
+              className={`lg:col-span-7 flex flex-col items-center justify-center p-4 sm:p-6 border border-[#C99A54]/20 rounded-xs min-h-[300px] sm:min-h-[360px] relative transition-colors duration-500 ${
                 colorBg === 'dark' ? 'bg-[#0E0603]' : 'bg-[#F8F2E9] text-[#18130F]'
               }`}
             >
-              <div className="absolute top-4 left-4 text-[10px] uppercase tracking-widest font-mono">
-                {colorBg === 'dark' ? 'VELVET BLACK BACKGROUND' : 'HIGH-CRI WHITE LABORATORY BACKGROUND'}
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 text-[9px] sm:text-[10px] uppercase tracking-widest font-mono">
+                {colorBg === 'dark' ? 'VELVET BLACK' : 'LABORATORY WHITE'}
               </div>
 
               {/* Background switch toggle */}
               <button
                 onClick={() => setColorBg(colorBg === 'dark' ? 'light' : 'dark')}
-                className="absolute top-4 right-4 px-3 py-1 text-[10px] uppercase tracking-wider border border-[#C99A54]/40 rounded-full hover:bg-[#C99A54]/20 transition-colors cursor-pointer"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[9px] sm:text-[10px] uppercase tracking-wider border border-[#C99A54]/40 rounded-full hover:bg-[#C99A54]/20 transition-colors cursor-pointer"
               >
-                Toggle {colorBg === 'dark' ? 'White Lab Backdrop' : 'Black Velvet Backdrop'}
+                {colorBg === 'dark' ? 'White Lab Backdrop' : 'Black Velvet Backdrop'}
               </button>
 
               {/* Rendered Diamond Silhouette with dynamic tint */}
-              <div className="relative w-48 h-48 flex items-center justify-center my-6">
+              <div className="relative w-36 h-36 sm:w-48 sm:h-48 flex items-center justify-center my-4 sm:my-6">
                 <div
-                  className="w-40 h-40 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300"
+                  className="w-28 h-28 sm:w-40 sm:h-40 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300"
                   style={{
                     backgroundColor: COLOR_GRADES[selectedColorIdx].tintHex,
                     boxShadow: colorBg === 'dark' ? '0 0 50px rgba(231,197,138,0.25)' : '0 10px 30px rgba(0,0,0,0.1)',
                   }}
                 >
                   <Gem
-                    className="w-28 h-28 stroke-[1]"
+                    className="w-20 h-20 sm:w-28 sm:h-28 stroke-[1]"
                     style={{
                       color: colorBg === 'dark' ? '#C99A54' : '#170C06',
                     }}
@@ -438,58 +438,58 @@ export const Gemological4CExplorer: React.FC = () => {
                 </div>
               </div>
 
-              <div className="text-center space-y-1">
-                <span className="font-serif text-3xl font-semibold">
+              <div className="text-center space-y-0.5 sm:space-y-1">
+                <span className="font-serif text-2xl sm:text-3xl font-semibold">
                   Grade {COLOR_GRADES[selectedColorIdx].grade}
                 </span>
-                <span className="text-xs uppercase tracking-widest opacity-75 block font-mono">
+                <span className="text-[10px] sm:text-xs uppercase tracking-widest opacity-75 block font-mono">
                   {COLOR_GRADES[selectedColorIdx].category} • {COLOR_GRADES[selectedColorIdx].rarity}
                 </span>
               </div>
             </div>
 
             {/* Color Grade Spectrum Selection */}
-            <div className="lg:col-span-5 space-y-5">
+            <div className="lg:col-span-5 space-y-4 sm:space-y-5 text-left">
               <div>
-                <span className="text-[10px] uppercase tracking-[0.25em] text-[#C99A54] block font-mono">
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-[#C99A54] block font-mono">
                   GIA / IGI COLOR SCALE
                 </span>
-                <h3 className="font-serif text-2xl text-[#F8F2E9]">
+                <h3 className="font-serif text-xl sm:text-2xl text-[#F8F2E9]">
                   Colorless D to J Warm Spectrum
                 </h3>
-                <p className="text-xs text-[#71665C] leading-relaxed mt-2">
+                <p className="text-xs text-[#71665C] leading-relaxed mt-1 sm:mt-2">
                   {COLOR_GRADES[selectedColorIdx].description}
                 </p>
               </div>
 
               {/* Interactive Color Spectrum Strip */}
-              <div className="grid grid-cols-6 gap-2">
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5 sm:gap-2">
                 {COLOR_GRADES.map((cg, idx) => (
                   <button
                     key={cg.grade}
                     onClick={() => {
                       setSelectedColorIdx(idx);
                     }}
-                    className={`py-3 px-1 border rounded-xs text-center transition-all cursor-pointer ${
+                    className={`py-2 sm:py-3 px-1 border rounded-xs text-center transition-all cursor-pointer ${
                       selectedColorIdx === idx
                         ? 'bg-[#C99A54] text-[#170C06] border-[#C99A54] font-bold shadow-lg'
                         : 'bg-[#201007] border-[#C99A54]/25 text-[#E7C58A] hover:border-[#C99A54]'
                     }`}
                   >
-                    <span className="font-serif text-lg block">{cg.grade}</span>
-                    <span className="text-[9px] uppercase tracking-tighter opacity-80 block truncate">
+                    <span className="font-serif text-base sm:text-lg block">{cg.grade}</span>
+                    <span className="text-[8px] sm:text-[9px] uppercase tracking-tighter opacity-80 block truncate">
                       {cg.category}
                     </span>
                   </button>
                 ))}
               </div>
 
-              <div className="p-3.5 bg-[#201007] border border-[#C99A54]/30 rounded-xs text-xs text-[#71665C] space-y-1.5">
+              <div className="p-3 sm:p-3.5 bg-[#201007] border border-[#C99A54]/30 rounded-xs text-xs text-[#71665C] space-y-1 sm:space-y-1.5">
                 <div className="flex items-center space-x-2 text-[#E7C58A]">
-                  <Sparkles className="w-4 h-4" />
-                  <span className="font-semibold uppercase tracking-wider text-[11px]">DIVA ATELIER STANDARD</span>
+                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  <span className="font-semibold uppercase tracking-wider text-[10px] sm:text-[11px]">DIVA ATELIER STANDARD</span>
                 </div>
-                <p className="leading-relaxed">
+                <p className="leading-relaxed text-[11px] sm:text-xs">
                   We strictly set grades **D, E, and F** in all engagement and ceremonial solitaire pieces to ensure unmatched icy whiteness.
                 </p>
               </div>
@@ -504,16 +504,16 @@ export const Gemological4CExplorer: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#170C06] border border-[#C99A54]/30 p-6 sm:p-10"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center bg-[#170C06] border border-[#C99A54]/30 p-4 sm:p-6 md:p-10"
           >
             {/* Interactive Loupe Chamber */}
-            <div className="lg:col-span-7 flex flex-col items-center justify-center p-6 bg-[#201007] border border-[#C99A54]/20 rounded-xs min-h-[360px] relative">
-              <span className="absolute top-4 left-4 text-[10px] uppercase tracking-widest text-[#E7C58A] font-mono">
+            <div className="lg:col-span-7 flex flex-col items-center justify-center p-4 sm:p-6 bg-[#201007] border border-[#C99A54]/20 rounded-xs min-h-[300px] sm:min-h-[360px] relative">
+              <span className="absolute top-3 left-3 sm:top-4 sm:left-4 text-[9px] sm:text-[10px] uppercase tracking-widest text-[#E7C58A] font-mono">
                 10x MICROSCOPIC CLARITY PLOT
               </span>
 
               {/* Microscope Circular Field of View */}
-              <div className="w-64 h-64 rounded-full border-4 border-[#C99A54] bg-[#120703] relative flex items-center justify-center shadow-2xl overflow-hidden my-4">
+              <div className="w-48 h-48 sm:w-64 sm:h-64 rounded-full border-4 border-[#C99A54] bg-[#120703] relative flex items-center justify-center shadow-2xl overflow-hidden my-3 sm:my-4">
                 {/* Crosshairs */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
                   <div className="w-full h-[1px] bg-[#E7C58A]" />
@@ -521,8 +521,8 @@ export const Gemological4CExplorer: React.FC = () => {
                 </div>
 
                 {/* Facet Geometry Matrix */}
-                <div className="w-48 h-48 border border-[#C99A54]/40 rotate-45 relative flex items-center justify-center">
-                  <div className="w-32 h-32 border border-[#C99A54]/30 rotate-45" />
+                <div className="w-36 h-36 sm:w-48 sm:h-48 border border-[#C99A54]/40 rotate-45 relative flex items-center justify-center">
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 border border-[#C99A54]/30 rotate-45" />
                 </div>
 
                 {/* Microscopic Inclusions on the Plot */}
@@ -546,7 +546,7 @@ export const Gemological4CExplorer: React.FC = () => {
               <div className="flex items-center space-x-3 text-xs">
                 <button
                   onClick={() => setHighlightInclusions(!highlightInclusions)}
-                  className="px-3 py-1 border border-[#C99A54]/40 rounded-full text-[#E7C58A] hover:bg-[#C99A54]/20 transition-colors"
+                  className="px-2.5 py-1 sm:px-3 sm:py-1 border border-[#C99A54]/40 rounded-full text-[#E7C58A] hover:bg-[#C99A54]/20 transition-colors text-[10px] sm:text-xs"
                 >
                   {highlightInclusions ? 'Hide Inclusion Markers' : 'Highlight Inclusion Markers'}
                 </button>
@@ -554,27 +554,27 @@ export const Gemological4CExplorer: React.FC = () => {
             </div>
 
             {/* Clarity Grade Selection */}
-            <div className="lg:col-span-5 space-y-5">
+            <div className="lg:col-span-5 space-y-4 sm:space-y-5 text-left">
               <div>
-                <span className="text-[10px] uppercase tracking-[0.25em] text-[#C99A54] block font-mono">
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-[#C99A54] block font-mono">
                   NATURAL PURITY SCALE
                 </span>
-                <h3 className="font-serif text-2xl text-[#F8F2E9]">
+                <h3 className="font-serif text-xl sm:text-2xl text-[#F8F2E9]">
                   {CLARITY_GRADES[selectedClarityIdx].grade} — {CLARITY_GRADES[selectedClarityIdx].fullName}
                 </h3>
-                <p className="text-xs text-[#71665C] leading-relaxed mt-2">
+                <p className="text-xs text-[#71665C] leading-relaxed mt-1 sm:mt-2">
                   {CLARITY_GRADES[selectedClarityIdx].description}
                 </p>
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1.5 sm:space-y-2">
                 {CLARITY_GRADES.map((cg, idx) => (
                   <button
                     key={cg.grade}
                     onClick={() => {
                       setSelectedClarityIdx(idx);
                     }}
-                    className={`w-full p-3 border text-left transition-all rounded-xs flex items-center justify-between cursor-pointer ${
+                    className={`w-full p-2.5 sm:p-3 border text-left transition-all rounded-xs flex items-center justify-between cursor-pointer ${
                       selectedClarityIdx === idx
                         ? 'bg-[#28160D] border-[#E7C58A] shadow-md'
                         : 'bg-[#201007]/60 border-[#C99A54]/25 text-[#E7C58A] hover:border-[#C99A54]/50'
@@ -582,9 +582,9 @@ export const Gemological4CExplorer: React.FC = () => {
                   >
                     <div>
                       <span className="text-xs font-semibold text-[#F8F2E9]">{cg.grade} ({cg.fullName})</span>
-                      <span className="text-[10px] text-[#71665C] block">Inclusions: {cg.inclusions}</span>
+                      <span className="text-[9px] sm:text-[10px] text-[#71665C] block">Inclusions: {cg.inclusions}</span>
                     </div>
-                    {selectedClarityIdx === idx && <Check className="w-4 h-4 text-[#C99A54]" />}
+                    {selectedClarityIdx === idx && <Check className="w-4 h-4 text-[#C99A54] shrink-0" />}
                   </button>
                 ))}
               </div>

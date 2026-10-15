@@ -12,12 +12,12 @@ export const OurStoryPage: React.FC = () => {
   }, []);
 
   return (
-    <main className="bg-[#F8F2E9] min-h-screen pt-24 md:pt-32 pb-24 text-[#18130F]">
+    <main className="bg-[#F8F2E9] min-h-screen pt-24 sm:pt-28 md:pt-32 pb-24 text-[#18130F]">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 md:px-12">
         {/* Breadcrumb */}
         <nav
           aria-label="Breadcrumb"
-          className="flex items-center space-x-2 text-[11px] md:text-xs text-[#71665C] mb-8 font-light"
+          className="flex items-center space-x-2 text-[11px] md:text-xs text-[#71665C] mb-6 sm:mb-8 font-light"
         >
           <Link to="/" className="hover:text-[#170C06] transition-colors">
             Home
@@ -27,17 +27,17 @@ export const OurStoryPage: React.FC = () => {
         </nav>
 
         {/* Hero Banner */}
-        <div className="relative h-[300px] md:h-[420px] bg-[#170C06] overflow-hidden border border-[#C99A54]/30 mb-16 flex items-center justify-center text-center p-8">
+        <div className="relative h-[260px] sm:h-[340px] md:h-[420px] bg-[#170C06] overflow-hidden border border-[#C99A54]/30 mb-12 sm:mb-16 flex items-center justify-center text-center p-4 sm:p-8">
           <img
-            src="/images/categories/custom-design.webp"
+            src="/images/products/custom-design-ring.webp"
             alt="DIVA Jewellers Heritage Atelier"
             className="absolute inset-0 w-full h-full object-cover opacity-35"
           />
-          <div className="relative z-10 max-w-2xl text-[#F8F2E9] space-y-4">
-            <span className="text-xs tracking-[0.35em] text-[#E7C58A] uppercase font-medium">
+          <div className="relative z-10 max-w-2xl text-[#F8F2E9] space-y-2.5 sm:space-y-4">
+            <span className="text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.35em] text-[#E7C58A] uppercase font-medium">
               HERITAGE & VISION
             </span>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight">
+            <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl font-normal leading-tight">
               A Legacy of Brilliance, Carved by Passion
             </h1>
             <p className="text-xs sm:text-sm text-[#F8F2E9]/80 font-light max-w-lg mx-auto leading-relaxed">

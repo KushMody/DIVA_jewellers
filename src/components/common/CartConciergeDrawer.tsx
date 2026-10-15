@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Trash2, Plus, Minus, ShieldCheck, Gift, Ruler, MessageCircle, ArrowRight, Sparkles, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -22,6 +22,18 @@ export const CartConciergeDrawer: React.FC = () => {
   } = useCart();
 
   const [isReservedSuccess, setIsReservedSuccess] = useState(false);
+
+  // Lock body scroll when cart concierge drawer is open
+  useEffect(() => {
+    if (isCartOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isCartOpen]);
 
   // Generate WhatsApp Concierge Consultation Link
   const generateWhatsAppUrl = () => {
@@ -251,7 +263,7 @@ export const CartConciergeDrawer: React.FC = () => {
 
             {/* Bottom Summary & Concierge Actions */}
             {items.length > 0 && (
-              <div className="p-5 sm:p-6 border-t border-[#C99A54]/25 bg-[#100703] space-y-4">
+              <div className="p-4 sm:p-6 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))] border-t border-[#C99A54]/25 bg-[#100703] space-y-3.5 sm:space-y-4">
                 <div className="space-y-1.5 text-xs">
                   <div className="flex justify-between text-[#71665C]">
                     <span>Subtotal</span>
@@ -274,41 +286,41 @@ export const CartConciergeDrawer: React.FC = () => {
                 </div>
 
                 {/* Primary Actions */}
-                <div className="space-y-2.5 pt-1">
+                <div className="space-y-2 pt-1">
                   {/* WhatsApp Direct Concierge Checkout */}
                   <a
                     href={generateWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3 bg-[#25D366]/90 hover:bg-[#25D366] text-white flex items-center justify-center space-x-2 text-xs font-semibold tracking-wider uppercase transition-colors shadow-lg"
+                    className="w-full py-2.5 sm:py-3 px-3 bg-[#25D366]/90 hover:bg-[#25D366] text-white flex items-center justify-center space-x-2 text-[11px] sm:text-xs font-semibold tracking-wider uppercase transition-colors shadow-lg"
                   >
-                    <MessageCircle className="w-4 h-4" />
-                    <span>CONNECT WITH ATELIER CONCIERGE (WHATSAPP)</span>
+                    <MessageCircle className="w-4 h-4 shrink-0" />
+                    <span className="truncate">CONCIERGE CHECKOUT (WHATSAPP)</span>
                   </a>
 
                   {/* Reserve Online */}
                   <button
                     onClick={handleCheckoutReservation}
                     disabled={isReservedSuccess}
-                    className="w-full py-3 bg-[#C99A54] hover:bg-[#E7C58A] text-[#170C06] flex items-center justify-center space-x-2 text-xs font-semibold tracking-widest uppercase transition-colors shadow-lg cursor-pointer"
+                    className="w-full py-2.5 sm:py-3 px-3 bg-[#C99A54] hover:bg-[#E7C58A] text-[#170C06] flex items-center justify-center space-x-2 text-[11px] sm:text-xs font-semibold tracking-widest uppercase transition-colors shadow-lg cursor-pointer"
                   >
                     {isReservedSuccess ? (
                       <>
-                        <Check className="w-4 h-4 text-[#170C06]" />
-                        <span>VAULT RESERVATION CONFIRMED</span>
+                        <Check className="w-4 h-4 text-[#170C06] shrink-0" />
+                        <span className="truncate">VAULT RESERVATION CONFIRMED</span>
                       </>
                     ) : (
                       <>
-                        <ShieldCheck className="w-4 h-4" />
-                        <span>RESERVE ATELIER APPOINTMENT / DISPATCH</span>
+                        <ShieldCheck className="w-4 h-4 shrink-0" />
+                        <span className="truncate">RESERVE ATELIER APPOINTMENT</span>
                       </>
                     )}
                   </button>
                 </div>
 
-                <div className="flex items-center justify-center space-x-2 text-[10px] text-[#71665C] pt-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#C99A54]" />
-                  <span>100% Insured Pan-India armored logistics • Lifetime guarantee</span>
+                <div className="flex items-center justify-center space-x-2 text-[9px] sm:text-[10px] text-[#71665C] pt-0.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#C99A54] shrink-0" />
+                  <span className="truncate">100% Insured Pan-India armored logistics</span>
                 </div>
               </div>
             )}

@@ -189,10 +189,11 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
           )}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full py-3 bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#170C06] border border-[#25D366]/40 text-xs font-medium tracking-wider uppercase flex items-center justify-center space-x-2 transition-colors"
+          className="w-full py-3 bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#170C06] border border-[#25D366]/40 text-xs font-medium tracking-wider uppercase flex items-center justify-center space-x-2 transition-colors text-center px-2"
         >
-          <MessageCircle className="w-4 h-4 text-[#25D366]" />
-          <span>INQUIRE WITH ATELIER CONCIERGE (WHATSAPP)</span>
+          <MessageCircle className="w-4 h-4 text-[#25D366] shrink-0" />
+          <span className="hidden sm:inline">INQUIRE WITH ATELIER CONCIERGE (WHATSAPP)</span>
+          <span className="sm:hidden">WHATSAPP CONCIERGE</span>
         </a>
       </div>
 
